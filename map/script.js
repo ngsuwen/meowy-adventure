@@ -3,6 +3,8 @@ const makeGridRow=(pointer)=>{
     $(`.row${pointer}`).css({'height':'50px'})
 }
 
+const $cat = $("<img class='cat' src='https://thumbs.gfycat.com/BouncyFavorableLamb.webp'>")
+
 function generateGrid(num) {
     for (let i=1;i<=num;i++){
         makeGridRow(i)
@@ -26,6 +28,7 @@ function move(str) {
         }
         arr[0]=Number(arr[0])-1
         currentPoint=arr.join('-')
+        $(`.${currentPoint}`).append($cat)
     }
     if (str=='down'){
         if (arr[0]==10){
@@ -33,6 +36,7 @@ function move(str) {
         }
         arr[0]=Number(arr[0])+1
         currentPoint=arr.join('-')
+        $(`.${currentPoint}`).append($cat)
     }
     if (str=='left'){
         if (arr[1]==1){
@@ -40,6 +44,7 @@ function move(str) {
         }
         arr[1]=Number(arr[1])-1
         currentPoint=arr.join('-')
+        $(`.${currentPoint}`).append($cat)
     }
     if (str=='right'){
         if (arr[1]==10){
@@ -47,6 +52,7 @@ function move(str) {
         }
         arr[1]=Number(arr[1])+1
         currentPoint=arr.join('-')
+        $(`.${currentPoint}`).append($cat)
     }
 }
 
@@ -55,22 +61,10 @@ $(()=>{
     // generate grid map
     generateGrid(10)
     // cat starts at grid (1,1)
-    const $cat = $("<img class='cat' src='https://thumbs.gfycat.com/BouncyFavorableLamb.webp'>")
     $('.2-1').append($cat)
-    $('.up').click(function(){
-        move('up')
-        $(`.${currentPoint}`).append($cat)
-    })
-    $('.down').click(function(){
-        move('down')
-        $(`.${currentPoint}`).append($cat)
-    })
-    $('.left').click(function(){
-        move('left')
-        $(`.${currentPoint}`).append($cat)
-    })
-    $('.right').click(function(){
-        move('right')
-        $(`.${currentPoint}`).append($cat)
-    })
+    // cat movement 
+    $('.up').click(function(){move('up')})
+    $('.down').click(function(){move('down')})
+    $('.left').click(function(){move('left')})
+    $('.right').click(function(){move('right')})
 })
