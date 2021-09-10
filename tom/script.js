@@ -23,12 +23,22 @@ class Character{
     takeDmg(num){
         this.hp-=num
         $(`.${this.name}Health`).text('Health: '+this.hp)
+        console.log('pass')
         if (this.hp<=0){
-            alert('You Died')
+            if (this.name == 'tom'){
+                alert('You Died')
+            } else {
+                $('.mouse').remove()
+            }
         }
     }
     action(sn){
         // add card effect here
+        // place holder effect
+        alert('play card')
+        let index = this.hand.indexOf(sn)
+        this.hand.splice(index,1)
+        $(`.${this.name}Hand`).text('Hand: '+ this.hand)
     }
 }
 
@@ -44,6 +54,15 @@ function shuffleDeck(array) {
 }
 
 const tom = new Character('tom',50,2,[1000, 1001, 1002, 1003, 1003, 1000])
+const mouse = new Character('mouse',20,4,[1000, 1001, 1002, 1003, 1003, 1000])
+
+function resetMouse(){
+    mouse.name='mouse';
+    mouse.hp=20;
+    mouse.mana=4;
+    mouse.deck=[1000, 1001, 1002, 1003, 1003, 1000];
+    mouse.hand=[]
+} 
 
 // addCards only applicable to tom
 function addCards(sn){
@@ -52,6 +71,22 @@ function addCards(sn){
     // update UI
     $('.tomDeck').text('Deck: '+tom.deck)
 }
+
+
+
+// New Mouse
+function newMouse(){
+    resetMouse()
+    const $h3 = $('<h3>').text('New Mouse Profile')
+    const $health = $('<div>').addClass('mouseHealth')
+    $health.text('Health: '+mouse.hp)
+    const $newMouseInfo = $('<div>').addClass('mouse')
+    $newMouseInfo.append($h3)
+    $newMouseInfo.append($health)
+    $('body').append($newMouseInfo)
+}
+
+
 
 $(()=>{
     $('.tomDeck').text('Deck: '+tom.deck)
@@ -65,6 +100,10 @@ $(()=>{
     $('.takeDmg').click(function(){tom.takeDmg(2)})
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
+    $('.action').click(function(){tom.action(1000)})
+    $('.newMouse').click(function(){newMouse()})
+    $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
+    
 
     // set add function on click to all cards
     for (i=4;i<14;i++){
