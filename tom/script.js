@@ -27,8 +27,10 @@ class Character{
         if (this.hp<=0){
             if (this.name == 'tom'){
                 alert('You Died')
+                battle=false
             } else {
                 $('.mouse').remove()
+                battle=false
             }
         }
     }
@@ -72,8 +74,6 @@ function addCards(sn){
     $('.tomDeck').text('Deck: '+tom.deck)
 }
 
-
-
 // New Mouse
 function newMouse(){
     resetMouse()
@@ -85,8 +85,6 @@ function newMouse(){
     $newMouseInfo.append($health)
     $('body').append($newMouseInfo)
 }
-
-
 
 $(()=>{
     $('.tomDeck').text('Deck: '+tom.deck)
@@ -104,7 +102,6 @@ $(()=>{
     $('.newMouse').click(function(){newMouse()})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
     
-
     // set add function on click to all cards
     for (i=4;i<14;i++){
         let addSn = 'a100'+i

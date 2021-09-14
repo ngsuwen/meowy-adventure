@@ -19,40 +19,48 @@ function generateGrid(num) {
 }
 
 let currentPoint='2-1'
-
+let battle = false
 function move(str) {
-    const arr=currentPoint.split('-')
-    if (str=='up'){
-        if (arr[0]==1){
-            return
+    if (!battle){
+        const arr=currentPoint.split('-')
+        if (str=='up'){
+            if (arr[0]==1){
+                return
+            }
+            arr[0]=Number(arr[0])-1
+            currentPoint=arr.join('-')
+            $(`.${currentPoint}`).append($cat)
         }
-        arr[0]=Number(arr[0])-1
-        currentPoint=arr.join('-')
-        $(`.${currentPoint}`).append($cat)
-    }
-    if (str=='down'){
-        if (arr[0]==10){
-            return
+        if (str=='down'){
+            if (arr[0]==10){
+                return
+            }
+            arr[0]=Number(arr[0])+1
+            currentPoint=arr.join('-')
+            $(`.${currentPoint}`).append($cat)
+            // randomly bumps into mouse
+            random = Math.floor(Math.random()*2)
+            if (random==1){
+                newMouse()
+                battle=true
+            }
         }
-        arr[0]=Number(arr[0])+1
-        currentPoint=arr.join('-')
-        $(`.${currentPoint}`).append($cat)
-    }
-    if (str=='left'){
-        if (arr[1]==1){
-            return
+        if (str=='left'){
+            if (arr[1]==1){
+                return
+            }
+            arr[1]=Number(arr[1])-1
+            currentPoint=arr.join('-')
+            $(`.${currentPoint}`).append($cat)
         }
-        arr[1]=Number(arr[1])-1
-        currentPoint=arr.join('-')
-        $(`.${currentPoint}`).append($cat)
-    }
-    if (str=='right'){
-        if (arr[1]==10){
-            return
+        if (str=='right'){
+            if (arr[1]==10){
+                return
+            }
+            arr[1]=Number(arr[1])+1
+            currentPoint=arr.join('-')
+            $(`.${currentPoint}`).append($cat)
         }
-        arr[1]=Number(arr[1])+1
-        currentPoint=arr.join('-')
-        $(`.${currentPoint}`).append($cat)
     }
 }
 
