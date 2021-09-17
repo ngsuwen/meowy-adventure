@@ -41,7 +41,7 @@ function move(str) {
             // randomly bumps into mouse
             random = Math.floor(Math.random()*2)
             if (random==1){
-                newMouse()
+                mouse.newMouse(mouseCallback)
                 battle=true
             }
         }

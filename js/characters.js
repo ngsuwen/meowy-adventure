@@ -1,5 +1,6 @@
 class Character{
-    constructor(name_,hp,mana,deck){
+    constructor(char, name_,hp,mana,deck){
+        this.char=char;
         this.name=name_;
         this.hp=hp;
         this.mana=mana;
@@ -18,14 +19,13 @@ class Character{
     }
     heal(num){
         this.hp += num
-        $(`.${this.name}Health`).text('Health: '+this.hp)
+        $(`.${this.char}Health`).text('Health: '+this.hp)
     }
     takeDmg(num){
         this.hp-=num
-        $(`.${this.name}Health`).text('Health: '+this.hp)
-        console.log('pass')
+        $(`.${this.char}Health`).text('Health: '+this.hp)
         if (this.hp<=0){
-            if (this.name == 'tom'){
+            if (this.char == 'tom'){
                 alert('You Died')
                 battle=false
             } else {
@@ -42,42 +42,42 @@ class Character{
         this.hand.splice(index,1)
         $(`.${this.name}Hand`).text('Hand: '+ this.hand)
     }
-}
-
-// shuffle deck before game starts
-function shuffleDeck(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-        $('.tomDeck').text('Deck: '+tom.deck)
+    newMouse(callback){
+        // New Mouse
+        callback()
     }
 }
 
-const tom = new Character('tom',50,2,[1000, 1001, 1002, 1003, 1003, 1000])
-const mouse = new Character('mouse',20,4,[1000, 1001, 1002, 1003, 1003, 1000])
-
-function resetMouse(){
-    mouse.name='mouse';
-    mouse.hp=20;
-    mouse.mana=4;
-    mouse.deck=[1000, 1001, 1002, 1003, 1003, 1000];
-    mouse.hand=[]
-} 
-
-// addCards only applicable to tom
-function addCards(sn){
-    // add card to deck
-    tom.deck.push(sn)
-    // update UI
-    $('.tomDeck').text('Deck: '+tom.deck)
+class Tom extends Character{
+    // shuffle deck before game starts
+    shuffleDeck() {
+        for (var i = this.deck.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = this.deck[i];
+            this.deck[i] = this.deck[j];
+            this.deck[j] = temp;
+            $('.tomDeck').text('Deck: '+tom.deck)
+        }
+    }
+    // addCards only applicable to tom
+    addCards(sn){
+        // add card to deck
+        tom.deck.push(sn)
+        // update UI
+        $('.tomDeck').text('Deck: '+tom.deck)
+    }
+    
 }
 
-// New Mouse
-function newMouse(){
-    resetMouse()
-    const $h3 = $('<h3>').text('New Mouse Profile')
+const tom = new Tom('tom','tom',50,2,[1000, 1001, 1002, 1003, 1003, 1000])
+const mouse = new Character('mouse','mouse',20,2,[1000, 1001, 1002, 1003, 1003, 1000])
+
+async function mouseCallback(){
+    mouse.name = await getName()
+    mouse.hp = 20
+    mouse.mana = 2
+    mouse.deck = [1000, 1001, 1002, 1003, 1003, 1000]
+    const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
     const $newMouseInfo = $('<div>').addClass('mouse')
@@ -86,6 +86,7 @@ function newMouse(){
     $('body').append($newMouseInfo)
 }
 
+
 $(()=>{
     $('.tomDeck').text('Deck: '+tom.deck)
     $('.tomHealth').text('Health: '+tom.hp)
@@ -93,19 +94,19 @@ $(()=>{
     $('.tomHand').text('Hand: '+tom.hand)
     
     // test buttons onclick functions
-    $('.shuffle').click(function(){shuffleDeck(tom.deck)})
+    $('.shuffle').click(function(){tom.shuffleDeck()})
     $('.drawCard').click(function(){tom.draw(2)})
     $('.takeDmg').click(function(){tom.takeDmg(2)})
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
     $('.action').click(function(){tom.action(1000)})
-    $('.newMouse').click(function(){newMouse()})
+    $('.newMouse').click(function(){mouse.newMouse(mouseCallback)})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
     
     // set add function on click to all cards
     for (i=4;i<14;i++){
         let addSn = 'a100'+i
         let sn = '100'+i
-        $(`.${addSn}`).click(function(){addCards(sn)})
+        $(`.${addSn}`).click(function(){tom.addCards(sn)})
     }
 })
