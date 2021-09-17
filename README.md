@@ -1,1 +1,9 @@
-# meowy-adventure
+# Meowy Adventure
+This project is in-progress.
+## Game Description
+A deck-building game that requires the player to build their own deck with cards collected through the adventure. Player will use the deck they have built to battle against enemies to win the game. 
+## Technologies
+* **HTML**
+* **CSS**
+* **Javascript**
+* **Jquery** is used to manage DOM manipulation 
