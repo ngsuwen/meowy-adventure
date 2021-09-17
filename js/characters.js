@@ -12,8 +12,8 @@ class Character{
             if (this.deck.length>0 && this.hand.length<5){
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
-                $(`.${this.name}Deck`).text('Deck: '+this.deck)
-                $(`.${this.name}Hand`).text('Hand: '+this.hand)
+                $(`.${this.char}Deck`).text('Deck: '+this.deck)
+                $(`.${this.char}Hand`).text('Hand: '+this.hand)
             }
         }
     }
@@ -40,11 +40,7 @@ class Character{
         alert('play card')
         let index = this.hand.indexOf(sn)
         this.hand.splice(index,1)
-        $(`.${this.name}Hand`).text('Hand: '+ this.hand)
-    }
-    newMouse(callback){
-        // New Mouse
-        callback()
+        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
     }
 }
 
@@ -72,7 +68,7 @@ class Tom extends Character{
 const tom = new Tom('tom','tom',50,2,[1000, 1001, 1002, 1003, 1003, 1000])
 const mouse = new Character('mouse','mouse',20,2,[1000, 1001, 1002, 1003, 1003, 1000])
 
-async function mouseCallback(){
+async function newMouse(){
     mouse.name = await getName()
     mouse.hp = 20
     mouse.mana = 2
@@ -85,7 +81,6 @@ async function mouseCallback(){
     $newMouseInfo.append($health)
     $('body').append($newMouseInfo)
 }
-
 
 $(()=>{
     $('.tomDeck').text('Deck: '+tom.deck)
@@ -100,7 +95,7 @@ $(()=>{
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
     $('.action').click(function(){tom.action(1000)})
-    $('.newMouse').click(function(){mouse.newMouse(mouseCallback)})
+    $('.newMouse').click(function(){newMouse()})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
     
     // set add function on click to all cards
