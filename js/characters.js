@@ -79,7 +79,9 @@ async function newMouse(){
     const $newMouseInfo = $('<div>').addClass('mouse')
     $newMouseInfo.append($h3)
     $newMouseInfo.append($health)
-    $('body').append($newMouseInfo)
+    // Create pop up window with mouse info
+    $newMouseInfo.dialog({autoOpen: false, draggable: false, position: { my: "center", at: "center", of: '.map' }})
+    $newMouseInfo.dialog("open")
 }
 
 $(()=>{

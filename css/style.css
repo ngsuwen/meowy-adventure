@@ -1,9 +1,24 @@
+/* main CSS */
 .cat {
     height: 50px;
-    /*position: fixed;*/
 }
-
+.container {
+    display: flex;
+    justify-content: center;
+}
 .map {
     display: flex;
     flex-direction: column;
+    margin: 1em;
+}
+
+/* jQuery UI CSS */
+.ui-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: .8em;
+    background-color: white;
+    display: flex
+}
+.ui-dialog-titlebar-close {
+    visibility: hidden;
 }

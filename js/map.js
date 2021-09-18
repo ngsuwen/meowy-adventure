@@ -67,20 +67,17 @@ function move(str) {
     }
 }
 
-$(()=>{
-    
+$(()=>{ 
     // generate grid map
     generateGrid(10)
     // cat starts at grid (1,1)
     $('.1-5').append($cat)
-    // cat movement 
+    // cat movement (buttons)
     $('.up').click(function(){move('up')})
-    //$(document).on('keydown',function(event){if(event.which=87){move('up')}})
     $('.down').click(function(){move('down')})
-    //$(document).on('keydown',function(event){if(event.which=83){move('down')}})
     $('.left').click(function(){move('left')})
-    //$(document).on('keydown',function(event){if(event.which=65){move('left')}})
     $('.right').click(function(){move('right')})
+    // cat movement (keyboard)
     $(document).on('keydown',function(event){
         if(event.which==68){move('right')}
         if(event.which==87){move('up')}
