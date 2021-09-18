@@ -11,6 +11,30 @@
     flex-direction: column;
     margin: 1em;
 }
+.control {
+    align-items: flex-end;
+    flex-basis: 13em;
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 4em 4em 4em;
+    grid-template-rows: 4em 4em 4em;
+    grid-column-gap: .5em;
+    grid-template-areas:
+      ". up ."
+      "left down right"
+}
+.up {
+    grid-area: up;
+}
+.down {
+    grid-area: down;
+}
+.left {
+    grid-area: left;
+}
+.right {
+    grid-area: right;
+}
 
 /* jQuery UI CSS */
 .ui-dialog {

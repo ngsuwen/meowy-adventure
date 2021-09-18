@@ -35,14 +35,6 @@ class Character{
             }
         }
     }
-    action(sn){
-        // add card effect here
-        // place holder effect
-        alert('play card')
-        let index = this.hand.indexOf(sn)
-        this.hand.splice(index,1)
-        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
-    }
 }
 
 class Tom extends Character{
@@ -62,6 +54,14 @@ class Tom extends Character{
         tom.deck.push(sn)
         // update UI
         $('.tomDeck').text('Deck: '+tom.deck)
+    }
+    action(sn){
+        // add card effect here
+        // place holder effect
+        alert('play card')
+        let index = this.hand.indexOf(sn)
+        this.hand.splice(index,1)
+        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
     }
     
 }

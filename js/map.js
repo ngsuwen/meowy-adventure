@@ -33,8 +33,6 @@ function move(str) {
             $(`.${currentPoint}`).append($cat)
             // randomly bumps into mouse
             bumpMouse()
-            console.log(currentPoint)
-            console.log(battle)
         }
         if (str=='down'){
             if (arr[0]==10){
@@ -45,8 +43,6 @@ function move(str) {
             $(`.${currentPoint}`).append($cat)
             // randomly bumps into mouse
             bumpMouse()
-            console.log(currentPoint)
-            console.log(battle)
         }
         if (str=='left'){
             if (arr[1]==1){
@@ -57,8 +53,6 @@ function move(str) {
             $(`.${currentPoint}`).append($cat)
             // randomly bumps into mouse
             bumpMouse()
-            console.log(currentPoint)
-            console.log(battle)
         }
         if (str=='right'){
             if (arr[1]==10){
@@ -69,8 +63,6 @@ function move(str) {
             $(`.${currentPoint}`).append($cat)
             // randomly bumps into mouse
             bumpMouse()
-            console.log(currentPoint)
-            console.log(battle)
         }
     }
 }
