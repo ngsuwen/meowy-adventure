@@ -1,6 +1,6 @@
 const makeGridRow=(pointer)=>{
     $('body').append($('<div>').addClass(`row${pointer}`))
-    $(`.row${pointer}`).css({'height':'50px'})
+    $(`.row${pointer}`).css({'display': 'flex'})
 }
 
 const $cat = $("<img class='cat' src='https://thumbs.gfycat.com/BouncyFavorableLamb.webp'>")
@@ -13,12 +13,13 @@ function generateGrid(num) {
             let gridClass = `${i}-${j}`
             $(`.row${i}`).append($('<div>').addClass(gridClass))
             $(`.${gridClass}`).css({'width':'50px', 'height':'50px', 'display':'inline-block', 'border':'1px solid black'})
+            $('.map').append($(`.row${i}`))
             j++
         }
     }
 }
 
-let currentPoint='2-1'
+let currentPoint='1-5'
 let battle = false
 function move(str) {
     if (!battle){
@@ -30,6 +31,8 @@ function move(str) {
             arr[0]=Number(arr[0])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
+            // randomly bumps into mouse
+            bumpMouse()
         }
         if (str=='down'){
             if (arr[0]==10){
@@ -39,11 +42,7 @@ function move(str) {
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
             // randomly bumps into mouse
-            random = Math.floor(Math.random()*2)
-            if (random==1){
-                newMouse()
-                battle=true
-            }
+            bumpMouse()
         }
         if (str=='left'){
             if (arr[1]==1){
@@ -52,6 +51,8 @@ function move(str) {
             arr[1]=Number(arr[1])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
+            // randomly bumps into mouse
+            bumpMouse()
         }
         if (str=='right'){
             if (arr[1]==10){
@@ -60,6 +61,8 @@ function move(str) {
             arr[1]=Number(arr[1])+1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
+            // randomly bumps into mouse
+            bumpMouse()
         }
     }
 }
@@ -69,10 +72,19 @@ $(()=>{
     // generate grid map
     generateGrid(10)
     // cat starts at grid (1,1)
-    $('.2-1').append($cat)
+    $('.1-5').append($cat)
     // cat movement 
     $('.up').click(function(){move('up')})
+    //$(document).on('keydown',function(event){if(event.which=87){move('up')}})
     $('.down').click(function(){move('down')})
+    //$(document).on('keydown',function(event){if(event.which=83){move('down')}})
     $('.left').click(function(){move('left')})
+    //$(document).on('keydown',function(event){if(event.which=65){move('left')}})
     $('.right').click(function(){move('right')})
+    $(document).on('keydown',function(event){
+        if(event.which==68){move('right')}
+        if(event.which==87){move('up')}
+        if(event.which==83){move('down')}
+        if(event.which==65){move('left')}
+    })
 })

@@ -1,4 +1,9 @@
 .cat {
     height: 50px;
-    position: fixed;
+    /*position: fixed;*/
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
 }

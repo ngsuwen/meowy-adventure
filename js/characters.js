@@ -94,6 +94,7 @@ $(()=>{
     $('.takeDmg').click(function(){tom.takeDmg(2)})
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
+    $('.dealLethal').click(function(){mouse.takeDmg(20)})
     $('.action').click(function(){tom.action(1000)})
     $('.newMouse').click(function(){newMouse()})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
