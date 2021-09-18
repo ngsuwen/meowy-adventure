@@ -29,7 +29,8 @@ class Character{
                 alert('You Died')
                 battle=false
             } else {
-                $('.mouse').remove()
+                $('.mouse-info').empty()
+                $('.mouse').dialog('close')
                 battle=false
             }
         }
@@ -76,15 +77,21 @@ async function newMouse(){
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
-    const $newMouseInfo = $('<div>').addClass('mouse')
+    const $mouseInfoDialog = $('.mouse')
+    $newMouseInfo = $('<div>').addClass('mouse-info')
     $newMouseInfo.append($h3)
     $newMouseInfo.append($health)
+    $mouseInfoDialog.append($newMouseInfo)
     // Create pop up window with mouse info
-    $newMouseInfo.dialog({autoOpen: false, draggable: false, position: { my: "center", at: "center", of: '.map' }})
-    $newMouseInfo.dialog("open")
+    $mouseInfoDialog.dialog("open")
 }
 
 $(()=>{
+
+    // hide mouse info until called
+    $('.mouse').dialog({autoOpen: false, draggable: false, position: { my: "center", at: "center", of: '.map' }})
+
+    // tom's profile display
     $('.tomDeck').text('Deck: '+tom.deck)
     $('.tomHealth').text('Health: '+tom.hp)
     $('.tomMana').text('Mana: '+tom.mana)
