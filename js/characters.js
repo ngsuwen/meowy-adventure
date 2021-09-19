@@ -31,7 +31,9 @@ class Character{
             } else {
                 $('.mouse-info').empty()
                 $('.mouse').dialog('close')
-                battle=false
+                // let tom choose from 3 cards to add
+                discover()
+                $('.discover').dialog('open')
             }
         }
     }
@@ -49,9 +51,16 @@ class Tom extends Character{
         }
     }
     // addCards only applicable to tom
-    addCards(sn){
+    addCard(sn){
         // add card to deck
         tom.deck.push(sn)
+        // update UI
+        $('.tomDeck').text('Deck: '+tom.deck)
+    }
+    removeCard(sn){
+        // add card to deck
+        let indexFound = tom.deck.indexOf(sn)
+        tom.deck.splice(indexFound,1)
         // update UI
         $('.tomDeck').text('Deck: '+tom.deck)
     }
@@ -66,13 +75,13 @@ class Tom extends Character{
     
 }
 
-const tom = new Tom('tom','tom',50,2,[1000, 1001, 1002, 1003, 1003, 1000])
-const mouse = new Character('mouse','mouse',20,2,[1000, 1001, 1002, 1003, 1003, 1000])
+const tom = new Tom('tom','tom',50,3,[0, 1, 2, 2, 3, 3])
+const mouse = new Character('mouse','mouse',20,3,[1])
 
 async function newMouse(){
     mouse.name = await getName()
     mouse.hp = 20
-    mouse.mana = 2
+    mouse.mana = 3
     mouse.deck = [1000, 1001, 1002, 1003, 1003, 1000]
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
@@ -83,7 +92,7 @@ async function newMouse(){
     $newMouseInfo.append($health)
     $mouseInfoDialog.append($newMouseInfo)
     // Create pop up window with mouse info
-    $mouseInfoDialog.dialog("open")
+    $mouseInfoDialog.dialog('open')
 }
 
 $(()=>{
@@ -104,14 +113,26 @@ $(()=>{
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
     $('.dealLethal').click(function(){mouse.takeDmg(20)})
-    $('.action').click(function(){tom.action(1000)})
-    $('.newMouse').click(function(){newMouse()})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
-    
-    // set add function on click to all cards
+    // add + set add function on click to all cards, collectable cards start from 4, total 10 different cards that can be collected
     for (i=4;i<14;i++){
-        let addSn = 'a100'+i
-        let sn = '100'+i
-        $(`.${addSn}`).click(function(){tom.addCards(sn)})
+        let addSn = 'a'+i
+        let sn = i
+        $('.discover').append($('<button>').text(`Card ${sn}`).attr('id', addSn))
+        $(`#${addSn}`).click(function(){
+            tom.addCard(sn)
+            $("[id^=a]").css({'display': 'none'})
+            $('.discover').dialog('close')
+            remove()
+            $('.remove').dialog('open')
+        })
+        $(`#${addSn}`).css({'display': 'none'})
     }
+    // set skip-add button
+    $('#skip-add').click(function(){
+        $("[id^=a]").css({'display': 'none'})
+        $('.discover').dialog('close')
+        remove()
+        $('.remove').dialog('open')
+    })
 })

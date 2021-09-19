@@ -8,6 +8,7 @@
         <script src="./js/const.js"></script>
         <script src="./js/characters.js"></script>
         <script src="./js/fight.js"></script>
+        <script src="./js/cards.js"></script>
         <script src="./js/map.js"></script>
         <link rel="stylesheet" href="./css/style.css">
     </head>
@@ -23,27 +24,23 @@
         <div class ='tomHand'>
         </div>
         <h3>Placeholder buttons for effects</h3>
-        <b>Add cards</b><br>
-        <button class='a1004'>Basic Card 1004</button>
-        <button class='a1005'>Basic Card 1005</button>
-        <button class='a1006'>Basic Card 1006</button>
-        <button class='a1007'>Basic Card 1007</button>
-        <button class='a1008'>Basic Card 1008</button>
-        <button class='a1009'>Basic Card 1009</button><br>
-        <button class='a10010'>Basic Card 10010</button>
-        <button class='a10011'>Basic Card 10011</button>
-        <button class='a10012'>Basic Card 10012</button>
-        <button class='a10013'>Basic Card 10013</button><br><br>
+        <div class='discover'>
+            <button id='skip-add'>skip</button>
+        </div>
+        <div class='remove'>
+            <button id='skip-remove'>skip</button>
+        </div>
         <div class='mouse'>
             <b>Action</b><br>
+            <div class='play'>
+                <button id='end-turn'>end turn</button>
+            </div>
             <button class='takeDmg'>Take Dmg</button>
             <button class='heal'>Heal</button>
             <button class='dealLethal'>Deal lethal</button>
             <button class='receiveLethal'>Lethal</button>
             <button class='shuffle'>Shuffle</button>
             <button class='drawCard'>Draw</button>
-            <button class='action'>Action</button>
-            <button class='newMouse'>New Mouse</button>
             <button class='mouseTakesDmg'>Mouse Takes Dmg</button>
         </div>
         <div class='container'>
