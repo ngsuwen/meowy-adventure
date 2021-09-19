@@ -17,7 +17,7 @@ const mouseAction = ()=>{
                 clearInterval(drawInterval)
                 mousePlay()
             }
-        }, 300)
+        }, 1000)
     }
 
 function mousePlay(){
@@ -27,8 +27,9 @@ function mousePlay(){
             mouse.hand.pop()
         } else {
             clearInterval(playInterval)
+            $('.mouse').dialog('open')
         }
-    }, 500)
+    }, 1000)
 }
 
 // after each fight

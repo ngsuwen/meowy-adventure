@@ -17,6 +17,13 @@ class Character{
             }
         }
     }
+    newTurn(){      
+        this.hand.forEach(element=>this.deck.push(element))
+        this.hand = []
+        this.shuffleDeck()
+        $(`.${this.char}Deck`).text('Deck: '+this.deck)
+        $(`.${this.char}Hand`).text('Hand: '+this.hand)
+    }
     heal(num){
         this.hp += num
         $(`.${this.char}Health`).text('Health: '+this.hp)
@@ -29,6 +36,7 @@ class Character{
                 alert('You Died')
                 battle=false
             } else {
+                tom.newTurn()
                 $('.mouse-info').empty()
                 $('.mouse').dialog('close')
                 // let tom choose from 3 cards to add
@@ -37,9 +45,14 @@ class Character{
             }
         }
     }
-}
-
-class Tom extends Character{
+    action(sn){
+        // add card effect here
+        // place holder effect
+        alert('play card')
+        let index = this.hand.indexOf(sn)
+        this.hand.splice(index,1)
+        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
+    }
     // shuffle deck before game starts
     shuffleDeck() {
         for (var i = this.deck.length - 1; i > 0; i--) {
@@ -47,9 +60,12 @@ class Tom extends Character{
             var temp = this.deck[i];
             this.deck[i] = this.deck[j];
             this.deck[j] = temp;
-            $('.tomDeck').text('Deck: '+tom.deck)
+            $(`.${this.char}Deck`).text('Deck: '+this.deck)
         }
     }
+}
+
+class Tom extends Character{
     // addCards only applicable to tom
     addCard(sn){
         // add card to deck
@@ -64,15 +80,6 @@ class Tom extends Character{
         // update UI
         $('.tomDeck').text('Deck: '+tom.deck)
     }
-    action(sn){
-        // add card effect here
-        // place holder effect
-        alert('play card')
-        let index = this.hand.indexOf(sn)
-        this.hand.splice(index,1)
-        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
-    }
-    
 }
 
 const tom = new Tom('tom','tom',50,3,[0, 1, 2, 2, 3, 3])
@@ -108,12 +115,18 @@ $(()=>{
     
     // test buttons onclick functions
     $('.shuffle').click(function(){tom.shuffleDeck()})
-    $('.drawCard').click(function(){tom.draw(2)})
+    $('.drawCard').click(function(){tom.draw(1)})
     $('.takeDmg').click(function(){tom.takeDmg(2)})
     $('.heal').click(function(){tom.heal(2)})
     $('.receiveLethal').click(function(){tom.takeDmg(50)})
     $('.dealLethal').click(function(){mouse.takeDmg(20)})
     $('.mouseTakesDmg').click(function(){mouse.takeDmg(2)})
+    $('#end-turn').click(function(){
+        tom.newTurn()
+        tom.shuffleDeck()
+        $('.mouse').dialog('close')
+        mouseAction()
+    })
     // add + set add function on click to all cards, collectable cards start from 4, total 10 different cards that can be collected
     for (i=4;i<14;i++){
         let addSn = 'a'+i
