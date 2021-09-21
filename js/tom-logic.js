@@ -1,4 +1,4 @@
-const tom = new Tom('tom','tom',50,3,[0, 1, 2, 2, 3, 3])
+const tom = new Tom('tom','tom',50,10,[0, 1, 2, 2, 3, 3])
 
 $(()=>{
 
@@ -15,6 +15,7 @@ $(()=>{
         $('.play').append($('<button>').text(`Card ${sn}`).attr('id', playSn))
         $(`#${playSn}`).click(function(){
             cardList[sn].play(tom, mouse)
+            $(`#${playSn}`).css({'display': 'none'})
         })
         $(`#${playSn}`).css({'display': 'none'})
     }

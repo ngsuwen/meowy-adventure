@@ -10,16 +10,16 @@ class Character{
     }
     draw(num){      
         for (let i=0;i<num;i++){
-            if (this.name='tom'){
-                $(`#p${this.deck[0]}`).css({'display':'block'})
-            }
             if (this.deck.length>0 && this.hand.length<4){
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
                 $(`.${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
+                if (this.char=='tom'){
+                    $(`#p${this.hand[this.hand.length-1]}`).css({'display':'block'})
+                }
             }
-            if (this.deck.length<=0){
+            if (this.deck.length<=0 && this.hand.length<4){
                 this.discard.forEach(element=>this.deck.push(element))
                 this.discard = []
                 this.shuffleDeck()
@@ -27,6 +27,9 @@ class Character{
                 this.deck.splice(0, 1)
                 $(`.${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
+                if (this.char=='tom'){
+                    $(`#p${this.hand[this.hand.length-1]}`).css({'display':'block'})
+                }
             }
         }
     }

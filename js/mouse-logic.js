@@ -13,27 +13,18 @@ const randomPlay=()=>{
     random = Math.random()
     if (random<=0.25){
         cardList[mouse.hand[0]].play(mouse, tom)
-        mouse.discard.push(mouse.hand[0])
-        mouse.hand.splice(0,1)
         //$($('.cardback')[0]).remove()
     }
     if (random<=0.5 && random>0.25){
         cardList[mouse.hand[1]].play(mouse, tom)
-        mouse.discard.push(mouse.hand[1])
-        mouse.hand.splice(1,1)
         //$($('.cardback')[0]).remove()
     }
     if (random<=0.75 && random>0.5){
         cardList[mouse.hand[2]].play(mouse, tom)
-        mouse.discard.push(mouse.hand[2])
-        mouse.hand.splice(2,1)
         //$($('.cardback')[0]).remove()
     }
     if (random>0.75){
         cardList[mouse.hand[3]].play(mouse, tom)
-        console.log(mouse.hand[3])
-        mouse.discard.push(mouse.hand[3])
-        mouse.hand.splice(3,1)
         //$($('.cardback')[0]).remove()
     }
 }

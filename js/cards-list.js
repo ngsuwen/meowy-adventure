@@ -2,12 +2,23 @@
 // magic cards: buffs, debuffs, heal, special effect
 // play function: remove from hand, effect
 
+function cardStandard(player, sn){
+  let index = player.hand.indexOf(sn)
+  player.discard.push(player.hand[index])
+  player.hand.splice(index,1)
+  player.draw(1)
+  player.mana-=1
+}
+
 const cardList = [{
     sn: 0,
     play: function(player, against) {
-      against.takeDmg(2)
-      player.draw(1)
-      player.mana-=1
+      if (player.mana==0){
+        alert('no mana, please end turn')
+      } else {
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -16,10 +27,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -28,10 +38,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -40,10 +49,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -52,10 +60,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -64,10 +71,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -76,10 +82,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -88,10 +93,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -100,10 +104,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -112,10 +115,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -124,10 +126,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -136,10 +137,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -148,10 +148,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   },
   {
@@ -160,10 +159,9 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(2)
-        player.draw(1)
-        player.mana-=1
-      }
+          against.takeDmg(2)
+          cardStandard(player, this.sn)
+        }
     }
   }
 ]
