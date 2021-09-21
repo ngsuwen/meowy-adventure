@@ -18,12 +18,12 @@ $(()=>{
         })
         $(`#${playSn}`).css({'display': 'none'})
     }
-    
+
     // end-turn button
     $('#end-turn').click(function(){
+        $("[id^=p]").css({'display': 'none'})
         tom.newTurn()
         tom.shuffleDeck()
-        $('.mouse').dialog('close')
         mouseAction()
     })
 })

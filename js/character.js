@@ -6,13 +6,23 @@ class Character{
         this.mana=mana;
         this.deck=deck;
         this.hand=[]
+        this.discard=[]
     }
     draw(num){      
         for (let i=0;i<num;i++){
             if (this.name='tom'){
                 $(`#p${this.deck[0]}`).css({'display':'block'})
             }
-            if (this.deck.length>0 && this.hand.length<5){
+            if (this.deck.length>0 && this.hand.length<4){
+                this.hand.push(this.deck[0])
+                this.deck.splice(0, 1)
+                $(`.${this.char}Deck`).text('Deck: '+this.deck)
+                $(`.${this.char}Hand`).text('Hand: '+this.hand)
+            }
+            if (this.deck.length<=0){
+                this.discard.forEach(element=>this.deck.push(element))
+                this.discard = []
+                this.shuffleDeck()
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
                 $(`.${this.char}Deck`).text('Deck: '+this.deck)
@@ -20,9 +30,12 @@ class Character{
             }
         }
     }
-    newTurn(){      
+    newTurn(){
+        this.mana = 3      
         this.hand.forEach(element=>this.deck.push(element))
         this.hand = []
+        this.discard.forEach(element=>this.deck.push(element))
+        this.discard = []
         this.shuffleDeck()
         $(`.${this.char}Deck`).text('Deck: '+this.deck)
         $(`.${this.char}Hand`).text('Hand: '+this.hand)
@@ -41,7 +54,7 @@ class Character{
             } else {
                 tom.newTurn()
                 $('.mouse-info').empty()
-                $('.mouse').dialog('close')
+                $('.battle').dialog('close')
                 // let tom choose from 3 cards to add
                 discover()
                 $('.discover').dialog('open')
