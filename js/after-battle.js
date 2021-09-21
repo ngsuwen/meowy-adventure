@@ -1,38 +1,4 @@
-const bumpMouse=()=>{
-    // randomly bumps into mouse
-    random = Math.random()
-    if (random<= 0.5){
-        newMouse()
-        battle=true
-    }
-}
-
-const mouseAction = ()=>{
-        const drawInterval = setInterval(()=>{
-            if (mouse.hand.length <5){
-                mouse.draw(1)
-                console.log(mouse.hand)
-            } else {
-                console.log('pass')
-                clearInterval(drawInterval)
-                mousePlay()
-            }
-        }, 1000)
-    }
-
-function mousePlay(){
-    const playInterval = setInterval(()=>{
-        if (mouse.hand.length >0){
-            console.log(mouse.hand[mouse.hand.length-1])
-            mouse.hand.pop()
-        } else {
-            clearInterval(playInterval)
-            $('.mouse').dialog('open')
-        }
-    }, 1000)
-}
-
-// after each fight
+// pick one card from three to add to deck
 function discover(){
     let cards=[4,5,6,7,8,9,10,11,12,13]
     for (let i=0;i<3;i++) {
@@ -43,6 +9,7 @@ function discover(){
     }
 }
 
+// pick one card to remove from deck
 function remove(){
     for (let i of tom.deck){
         $(`#r${i}`).css({'display':'block'})
@@ -50,9 +17,11 @@ function remove(){
 }
 
 $(()=>{
+    // hide discover dialog until called
     $('.discover').dialog({autoOpen: false, draggable: false, position: { my: "center", at: "center", of: '.map' }})
+    // hide remove dialog until called
     $('.remove').dialog({autoOpen: false, draggable: false, position: { my: "center", at: "center", of: '.map' }})
-    // add + set remove function on click to all cards
+    // add, then set on click remove to all cards
     for (i=0;i<14;i++){
         let sn=i
         let removeSn = 'r'+i
@@ -65,10 +34,33 @@ $(()=>{
         })
         $(`#${removeSn}`).css({'display': 'none'})
     }
-    // set skip-remove button
+    // skip-remove button
     $('#skip-remove').click(function(){
         $("[id^=r]").css({'display': 'none'})
         $('.remove').dialog('close')
         battle=false
+    })
+
+    // add, then set on click add to all cards
+    // collectible cards start from 4, total 10 different cards that can be collected
+    for (i=4;i<14;i++){
+        let addSn = 'a'+i
+        let sn = i
+        $('.discover').append($('<button>').text(`Card ${sn}`).attr('id', addSn))
+        $(`#${addSn}`).click(function(){
+            tom.addCard(sn)
+            $("[id^=a]").css({'display': 'none'})
+            $('.discover').dialog('close')
+            remove()
+            $('.remove').dialog('open')
+        })
+        $(`#${addSn}`).css({'display': 'none'})
+    }
+    // skip-add button
+    $('#skip-add').click(function(){
+        $("[id^=a]").css({'display': 'none'})
+        $('.discover').dialog('close')
+        remove()
+        $('.remove').dialog('open')
     })
 }) 
