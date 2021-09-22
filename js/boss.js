@@ -1,5 +1,14 @@
 const $boss = $("<img class='boss' src='https://pa1.narvii.com/6373/6e9dfebb7763d13fb5774ce007f137d47444d072_hq.gif'>")
 
+const checkBoss=()=>{
+    if ($(`.${currentPoint}`).find('.boss').length>0){
+        $(`.${currentPoint}`).children().remove()
+        $(`.${currentPoint}`).append($cat)
+        boss()
+        battle=false
+    }
+}
+
 function boss(){
     mouse.name = 'Bossy Mouse'
     mouse.hp = 30
