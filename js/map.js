@@ -31,8 +31,7 @@ function move(str) {
             arr[0]=Number(arr[0])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            // randomly bumps into mouse
-            bumpMouse()
+            checkBox()
         }
         if (str=='down'){
             if (arr[0]==10){
@@ -40,9 +39,8 @@ function move(str) {
             }
             arr[0]=Number(arr[0])+1
             currentPoint=arr.join('-')
-            $(`.${currentPoint}`).append($cat)
-            // randomly bumps into mouse
-            bumpMouse()
+            checkBox()
+
         }
         if (str=='left'){
             if (arr[1]==1){
@@ -51,8 +49,7 @@ function move(str) {
             arr[1]=Number(arr[1])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            // randomly bumps into mouse
-            bumpMouse()
+            checkBox()
         }
         if (str=='right'){
             if (arr[1]==10){
@@ -61,8 +58,7 @@ function move(str) {
             arr[1]=Number(arr[1])+1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            // randomly bumps into mouse
-            bumpMouse()
+            checkBox()
         }
     }
 }

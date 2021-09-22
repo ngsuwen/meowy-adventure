@@ -2,6 +2,9 @@
 .cat {
     height: 50px;
 }
+.box {
+    height: 25px;
+}
 .container {
     display: flex;
     justify-content: center;
