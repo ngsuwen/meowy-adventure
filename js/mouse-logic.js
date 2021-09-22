@@ -48,6 +48,7 @@ function mousePlay(){
         } else {
             clearInterval(playInterval)
             $('.cardback').remove()
+            $('#end-turn').css({'display': 'block'})
             mouse.newTurn()
             tom.draw(4)
         }

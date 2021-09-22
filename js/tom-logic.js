@@ -11,6 +11,7 @@ $(()=>{
     // end-turn button
     $('#end-turn').click(function(){
         $("[id^=p]").css({'display': 'none'})
+        $('#end-turn').css({'display': 'none'})
         tom.newTurn()
         tom.shuffleDeck()
         mouseAction()
