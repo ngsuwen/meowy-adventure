@@ -11,8 +11,8 @@ const checkBox=()=>{
     if ($(`.${currentPoint}`).find('.box').length>0){
         $(`.${currentPoint}`).children().remove()
         $(`.${currentPoint}`).append($cat)
-        let randomRow = Math.floor(Math.random()*10+1)
-        let randomCol = Math.floor(Math.random()*10+1)
+        let randomRow = Math.floor(Math.random()*9+1)
+        let randomCol = Math.floor(Math.random()*9+1)
         $(`.${randomRow}-${randomCol}`).append($box)
         specialDiscover()
         $('.discover').dialog('open')
