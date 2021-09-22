@@ -16,7 +16,8 @@ class Character{
                 $(`.${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
-                    $(`#p${this.hand[this.hand.length-1]}`).css({'display':'block'})
+                    let sn = tom.hand[tom.hand.length-1]
+                    this.playButton(sn)
                 }
             }
             if (this.deck.length<=0 && this.hand.length<4){
@@ -28,7 +29,8 @@ class Character{
                 $(`.${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
-                    $(`#p${this.hand[this.hand.length-1]}`).css({'display':'block'})
+                    let sn = tom.hand[tom.hand.length-1]
+                    this.playButton(sn)
                 }
             }
         }
@@ -98,5 +100,15 @@ class Tom extends Character{
         tom.deck.splice(indexFound,1)
         // update UI
         $('.tomDeck').text('Deck: '+tom.deck)
+    }
+    // set on click play to cards
+    playButton(sn){
+        let playSn = 'p'+sn
+        let $button = $('<button>').text(`Card ${sn}`).attr('id', playSn)
+        $('.play').append($button)
+        $button.on('click', function(event){
+            $(event.currentTarget).remove()
+            cardList[sn].play(tom, mouse)
+        })
     }
 }

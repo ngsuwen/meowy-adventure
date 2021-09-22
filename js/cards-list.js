@@ -5,9 +5,13 @@
 function cardStandard(player, sn){
   let index = player.hand.indexOf(sn)
   player.discard.push(player.hand[index])
+  console.log(player.hand + '1')
   player.hand.splice(index,1)
+  console.log(player.hand + '2')
   player.draw(1)
+  console.log(player.hand + '3')
   player.mana-=1
+  console.log(player.hand + '4')
 }
 
 const cardList = [{

@@ -55,7 +55,7 @@ function mousePlay(){
 
 async function newMouse(){
     mouse.name = await getName()
-    mouse.hp = 20
+    mouse.hp = 16
     mouse.mana = 3
     mouse.deck = [0, 1, 2, 3, 3, 0]
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
