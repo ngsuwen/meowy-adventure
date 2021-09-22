@@ -37,6 +37,7 @@ class Character{
     }
     newTurn(){
         this.mana = 3      
+        $(`.${this.char}Mana`).text('Mana: '+this.mana)
         this.hand.forEach(element=>this.deck.push(element))
         this.hand = []
         this.discard.forEach(element=>this.deck.push(element))
@@ -58,6 +59,7 @@ class Character{
                 battle=false
             } else {
                 tom.newTurn()
+                $(`[id^='p']`).remove()
                 $('.mouse-info').empty()
                 $('.battle').dialog('close')
                 // let tom choose from 3 cards to add
@@ -65,14 +67,6 @@ class Character{
                 $('.discover').dialog('open')
             }
         }
-    }
-    action(sn){
-        // add card effect here
-        // place holder effect
-        alert('play card')
-        let index = this.hand.indexOf(sn)
-        this.hand.splice(index,1)
-        $(`.${this.char}Hand`).text('Hand: '+ this.hand)
     }
     // shuffle deck before game starts
     shuffleDeck() {

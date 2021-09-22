@@ -47,6 +47,7 @@ function mousePlay(){
             randomPlay()
         } else {
             clearInterval(playInterval)
+            $('.cardback').remove()
             mouse.newTurn()
             tom.draw(4)
         }

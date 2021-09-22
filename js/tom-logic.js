@@ -1,4 +1,4 @@
-const tom = new Tom('tom','tom',50,8,[0, 1, 2, 2, 3, 3])
+const tom = new Tom('tom','tom',50,3,[0, 1, 2, 2, 3, 3])
 
 $(()=>{
 

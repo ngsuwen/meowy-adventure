@@ -8,6 +8,7 @@ function cardStandard(player, sn){
   player.hand.splice(index,1)
   player.draw(1)
   player.mana-=1
+  $(`.${player.char}Mana`).text('Mana: '+player.mana)
 }
 
 const cardList = [{
@@ -18,6 +19,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -29,7 +31,8 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
-        }
+        $(`.${against.char}Health`).text('Health: '+against.hp)
+      }
     }
   },
   {
@@ -40,6 +43,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -51,6 +55,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -62,6 +67,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -73,6 +79,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -84,6 +91,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -95,6 +103,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -106,6 +115,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -117,6 +127,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -128,6 +139,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -139,6 +151,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -150,6 +163,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   },
@@ -161,6 +175,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.takeDmg(2)
+        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     }
   }
