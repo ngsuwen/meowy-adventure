@@ -5,15 +5,18 @@
         <title>Meowy Adventure</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <script src="./js/map.js"></script>
         <script src="./js/treasure.js"></script>
         <script src="./js/character.js"></script>
         <script src="./js/boss.js"></script>
         <script src="./js/cards-list.js"></script>
+        <script src="./js/card-details.js"></script>
         <script src="./js/tom-logic.js"></script>
         <script src="./js/mouse-name.js"></script>
         <script src="./js/mouse-logic.js"></script>
         <script src="./js/after-battle.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
@@ -27,12 +30,15 @@
         </div>
         <div class ='tomHand'>
         </div>
+        <!--Discover popup div-->
         <div class='discover'>
             <button id='skip-add'>skip</button>
         </div>
+        <!--Remove popup div-->
         <div class='remove'>
             <button id='skip-remove'>skip</button>
         </div>
+        <!--Battle popup div-->
         <div class='battle'>
             <div class='mouse'>
             </div>
@@ -40,6 +46,7 @@
                 <button id='end-turn'>end turn</button>
             </div>
         </div>
+        <!--main page layout: right side map, left side control buttons-->
         <div class='container'>
             <div class='map'></div>
             <div class='control'>
@@ -49,5 +56,12 @@
                 <button class='right'>RIGHT</button>
             </div>
         </div>
+        <!--Card popup details-->
+        <div id="card-window" class="mfp-hide">
+            <div class="card-detail">
+              Card description here
+            </div>
+        </div>
+        <a href="#card-window" class="open-gallery-link"><button type='button'>Card 1</button></a>
     </body>
 </html>

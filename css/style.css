@@ -52,6 +52,14 @@
     display: inline-block;
 }
 
+.card-detail {
+    padding: 40px;
+      background: #FFF;
+      margin: 0 auto;
+      position: relative;
+      max-width: 100px;
+    }
+
 /* jQuery UI CSS */
 .ui-dialog {
     font-family: Verdana,Arial,sans-serif;

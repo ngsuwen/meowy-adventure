@@ -12,31 +12,33 @@ function cardStandard(player, sn){
 }
 
 const cardList = [{
-    sn: 0,
+    sn: 0, // basic combat card
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
+        against.takeDmg(6)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Deal 6 damage'
   },
   {
-    sn: 1,
+    sn: 1, // basic combat card
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        player.heal(5)
+        $(`.${player.char}Health`).text('Health: '+player.hp)
       }
-    }
+    },
+    effect: 'Heal 5 health'
   },
   {
-    sn: 2,
+    sn: 2, // basic magic card
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -45,10 +47,11 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Apply 3 weak'
   },
   {
-    sn: 3,
+    sn: 3, // basic magic card
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -57,7 +60,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Apply 3 poison'
   },
   {
     sn: 4,
@@ -69,7 +73,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Apply 3 weak'
   },
   {
     sn: 5,
