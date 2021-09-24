@@ -62,9 +62,10 @@ class Character{
                 $(`[id^='p']`).remove()
                 $('.mouse-info').empty()
                 $('.battle').dialog('close')
+                battle = false
                 // let tom choose from 3 cards to add
-                discover()
-                $('.discover').dialog('open')
+                // discover()
+                // $('.discover').dialog('open')
             }
         }
     }

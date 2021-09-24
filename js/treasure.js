@@ -1,12 +1,5 @@
 const $box = $("<img class='box' src='https://opengameart.org/sites/default/files/Treasure%20Chest%20%28Open-Close%29%20GIF.gif'>")
 
-function specialDiscover(){
-    let cards=[11, 12, 13]
-    for (let i of cards) {
-        $(`#a${i}`).css({'display':'block'})
-    }
-}
-
 const checkBox=()=>{
     if ($(`.${currentPoint}`).find('.box').length>0){
         $(`.${currentPoint}`).children().remove()
@@ -14,7 +7,8 @@ const checkBox=()=>{
         let randomRow = Math.floor(Math.random()*9+1)
         let randomCol = Math.floor(Math.random()*9+1)
         $(`.${randomRow}-${randomCol}`).append($box)
-        specialDiscover()
+        discover()
+        battle = true
         $('.discover').dialog('open')
     } else {
         $(`.${currentPoint}`).append($cat)
