@@ -5,8 +5,13 @@ class Character{
         this.hp=hp;
         this.mana=mana;
         this.deck=deck;
-        this.hand=[]
-        this.discard=[]
+        this.hand=[];
+        this.discard=[];
+        this.weak=0;
+        this.poison=0;
+        this.curse=0;
+        this.reflect=0;
+        this.double=false;
     }
     draw(num){      
         for (let i=0;i<num;i++){
@@ -55,8 +60,7 @@ class Character{
         $(`.${this.char}Health`).text('Health: '+this.hp)
         if (this.hp<=0){
             if (this.char == 'tom'){
-                alert('You Died')
-                $('window').reload()
+                if(!alert('You Died')){window.location.reload()}
             } else {
                 tom.newTurn()
                 $(`[id^='p']`).remove()

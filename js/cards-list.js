@@ -44,8 +44,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        against.weak+=3
         }
     },
     effect: 'Apply 3 weak. Weakened characters will deal 50% less damage for X turns.'
@@ -57,8 +56,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        against.poison+=3
         }
     },
     effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
@@ -70,8 +68,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        against.curse+=3
         }
     },
     effect: 'Apply 3 curse. Cursed characters will heal 50% less for X turns.'
@@ -83,8 +80,10 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
+        against.takeDmg(4)
+        player.heal(3)
         $(`.${against.char}Health`).text('Health: '+against.hp)
+        $(`.${player.char}Health`).text('Health: '+player.hp)
         }
     },
     effect: 'Deal 4 damage, heal 3 health.'
@@ -96,8 +95,10 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
+        against.takeDmg(4)
+        player.mana+=1
         $(`.${against.char}Health`).text('Health: '+against.hp)
+        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
     effect: 'Deal 4 damage, increase mana by 1 for this turn.'
@@ -109,8 +110,8 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        player.mana+=2
+        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
     effect: 'Increase mana by 2 for this turn.'
@@ -121,12 +122,17 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        cardStandard(player, this.sn)
-        against.takeDmg(2)
+        against.takeDmg(7)
         $(`.${against.char}Health`).text('Health: '+against.hp)
+        let index = player.hand.indexOf(8)
+        player.hand.splice(index,1)
+        player.draw(1)
+        player.deck.unshift(8)
+        player.mana-=1
+        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
-    effect: 'Deal 5 damange, shuffle this to the top of the deck.'
+    effect: 'Deal 7 damange, shuffle this to the top of the deck after drawing a card.'
   },
   {
     sn: 9,
@@ -135,8 +141,10 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
+        against.takeDmg(12)
+        player.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
+        $(`.${player.char}Health`).text('Health: '+player.hp)
         }
     },
     effect: 'Take 2 damage. Deal 12 damage.'
@@ -148,8 +156,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        player.reflect+=1
         }
     },
     effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
@@ -161,7 +168,8 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
+        let num = 2*(Math.floor((80-player.hp)/5))
+        against.takeDmg(num)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
@@ -174,8 +182,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(2)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
+        player.double=true
         }
     },
     effect: 'The next card you play will have doubled effect.'
@@ -186,9 +193,13 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        cardStandard(player, this.sn)
-        against.takeDmg(2)
+        player.heal(30)
         $(`.${against.char}Health`).text('Health: '+against.hp)
+        let index = player.hand.indexOf(8)
+        player.hand.splice(index,1)
+        player.draw(1)
+        player.mana-=1
+        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
     effect: 'Heal 30 health. Remove this from the deck permanently.'
