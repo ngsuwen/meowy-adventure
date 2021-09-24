@@ -11,6 +11,35 @@ function cardStandard(player, sn){
   $(`.${player.char}Mana`).text('Mana: '+player.mana)
 }
 
+function dmgCal(player, against, base){
+  let multiplier = 1
+  if (player.weak>0){
+    multiplier /= 2
+  }
+  if (player.double) {
+    multiplier *=2
+  }
+  let damage = base*multiplier
+  against.takeDmg(damage)
+  if (against.reflect>0){
+    player.takeDmg(Math.floor(damage/2))
+  }
+  console.log(`${player.char} deal ${damage} to ${against.char}`)
+}
+
+function healCal(player, base){
+  let multiplier = 1
+  if (player.curse>0){
+    multiplier/2
+  }
+  if (player.double) {
+    multiplier*=2
+  }
+  let heal = base*multiplier
+  player.heal(heal)
+  console.log(`${player.char} heal ${heal} hp`)
+}
+
 const cardList = [{
     sn: 0,
     play: function(player, against) {
@@ -18,7 +47,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(6)
+        dmgCal(player, against, 6)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
@@ -31,11 +60,11 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        player.heal(5)
+        healCal(player, 4)
         $(`.${player.char}Health`).text('Health: '+player.hp)
       }
     },
-    effect: 'Heal 5 health'
+    effect: 'Heal 4 health'
   },
   {
     sn: 2, 
@@ -59,7 +88,7 @@ const cardList = [{
         against.poison+=3
         }
     },
-    effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
+    effect: 'Apply 3 poison. Poisoned characters will take X damage at the end of their turn. Poison count decrease by 1.'
   },
   {
     sn: 4,
@@ -80,13 +109,13 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(4)
-        player.heal(3)
+        dmgCal(player, against, 4)
+        healCal(player, 4)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         $(`.${player.char}Health`).text('Health: '+player.hp)
         }
     },
-    effect: 'Deal 4 damage, heal 3 health.'
+    effect: 'Deal 4 damage, heal 4 health.'
   },
   {
     sn: 6,
@@ -95,7 +124,7 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(4)
+        dmgCal(player, against, 4)
         player.mana+=1
         $(`.${against.char}Health`).text('Health: '+against.hp)
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
@@ -122,7 +151,7 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        against.takeDmg(7)
+        dmgCal(player, against, 8)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         let index = player.hand.indexOf(8)
         player.hand.splice(index,1)
@@ -132,7 +161,7 @@ const cardList = [{
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
-    effect: 'Deal 7 damange, shuffle this to the top of the deck after drawing a card.'
+    effect: 'Deal 8 damange, shuffle this to the top of the deck after drawing a card.'
   },
   {
     sn: 9,
@@ -141,8 +170,12 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.takeDmg(12)
-        player.takeDmg(2)
+        dmgCal(player, against, 12)
+        if (player.double){
+          player.takeDmg(4)
+        } else {
+          player.takeDmg(2)
+        }
         $(`.${against.char}Health`).text('Health: '+against.hp)
         $(`.${player.char}Health`).text('Health: '+player.hp)
         }
@@ -169,7 +202,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         let num = 2*(Math.floor((80-player.hp)/5))
-        against.takeDmg(num)
+        dmgCal(player, against, num)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
@@ -193,7 +226,7 @@ const cardList = [{
       if (player.mana==0){
         alert('no mana, please end turn')
       } else {
-        player.heal(30)
+        healCal(player, 30)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         let index = player.hand.indexOf(8)
         player.hand.splice(index,1)

@@ -59,7 +59,7 @@ async function newMouse(){
     mouse.name = await getName()
     mouse.hp = 16
     mouse.mana = 3
-    mouse.deck = [0, 1, 2, 3, 11, 0, 9]
+    mouse.deck = [0, 1, 2, 3, 0, 9]
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)

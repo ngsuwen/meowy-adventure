@@ -41,6 +41,20 @@ class Character{
         }
     }
     newTurn(){
+        if (this.weak>0){
+            this.weak-=1
+        }
+        if (this.curse>0){
+            this.curse-=1
+        }
+        if (this.poison>0){
+            this.takeDmg(this.poison)
+            this.poison-=1
+        }
+        if (this.reflect>0){
+            this.reflect-=1
+        }
+        this.double=false
         this.mana = 3      
         $(`.${this.char}Mana`).text('Mana: '+this.mana)
         this.hand.forEach(element=>this.deck.push(element))
