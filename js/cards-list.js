@@ -25,6 +25,7 @@ function dmgCal(player, against, base){
     player.takeDmg(Math.floor(damage/2))
   }
   console.log(`${player.char} deal ${damage} to ${against.char}`)
+  console.log(`Weak: ${player.weak}`)
 }
 
 function healCal(player, base){
@@ -38,6 +39,7 @@ function healCal(player, base){
   let heal = base*multiplier
   player.heal(heal)
   console.log(`${player.char} heal ${heal} hp`)
+  console.log(`Curse: ${player.curse}`)
 }
 
 const cardList = [{
