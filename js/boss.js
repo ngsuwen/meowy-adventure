@@ -13,7 +13,7 @@ function boss(){
     mouse.name = 'Bossy Mouse'
     mouse.hp = 30
     mouse.mana = 4
-    mouse.deck = [0, 1, 2, 3, 9, 10, 11, 12, 13]
+    mouse.deck = [0, 1, 2, 4, 9, 6, 5, 8]
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)

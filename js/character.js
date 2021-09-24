@@ -56,7 +56,7 @@ class Character{
         if (this.hp<=0){
             if (this.char == 'tom'){
                 alert('You Died')
-                battle=false
+                $('window').reload()
             } else {
                 tom.newTurn()
                 $(`[id^='p']`).remove()
@@ -101,6 +101,7 @@ class Tom extends Character{
         let playSn = 'p'+sn
         let $button = $('<button>').text(`Card ${sn}`)
         $button.attr('href','#card-window')
+        $button.attr('id', playSn)
         $button.addClass('open-gallery-link')
         $('.play').append($button)
         $button.on('click', function(event){

@@ -12,7 +12,7 @@ function cardStandard(player, sn){
 }
 
 const cardList = [{
-    sn: 0, // basic combat card
+    sn: 0,
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -25,7 +25,7 @@ const cardList = [{
     effect: 'Deal 6 damage'
   },
   {
-    sn: 1, // basic combat card
+    sn: 1,
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -38,7 +38,7 @@ const cardList = [{
     effect: 'Heal 5 health'
   },
   {
-    sn: 2, // basic magic card
+    sn: 2, 
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -48,10 +48,10 @@ const cardList = [{
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
-    effect: 'Apply 3 weak'
+    effect: 'Apply 3 weak. Weakened characters will deal 50% less damage for X turns.'
   },
   {
-    sn: 3, // basic magic card
+    sn: 3, 
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
@@ -61,7 +61,7 @@ const cardList = [{
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
-    effect: 'Apply 3 poison'
+    effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
   },
   {
     sn: 4,
@@ -74,7 +74,7 @@ const cardList = [{
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
-    effect: 'Apply 3 weak'
+    effect: 'Apply 3 curse. Cursed characters will heal 50% less for X turns.'
   },
   {
     sn: 5,
@@ -86,7 +86,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Deal 4 damage, heal 3 health.'
   },
   {
     sn: 6,
@@ -98,7 +99,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Deal 4 damage, increase mana by 1 for this turn.'
   },
   {
     sn: 7,
@@ -110,7 +112,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Increase mana by 2 for this turn.'
   },
   {
     sn: 8,
@@ -122,7 +125,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Deal 5 damange, shuffle this to the top of the deck.'
   },
   {
     sn: 9,
@@ -134,7 +138,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Take 2 damage. Deal 12 damage.'
   },
   {
     sn: 10,
@@ -146,7 +151,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
   },
   {
     sn: 11,
@@ -158,7 +164,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Deal 2 damange for every 5 health you have lost.'
   },
   {
     sn: 12,
@@ -170,7 +177,8 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'The next card you play will have doubled effect.'
   },
   {
     sn: 13,
@@ -182,6 +190,7 @@ const cardList = [{
         against.takeDmg(2)
         $(`.${against.char}Health`).text('Health: '+against.hp)
         }
-    }
+    },
+    effect: 'Heal 30 health. Remove this from the deck permanently.'
   }
 ]
