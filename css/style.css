@@ -54,11 +54,21 @@
 
 .card-detail {
     padding: 40px;
-      background: #FFF;
-      margin: 0 auto;
-      position: relative;
-      max-width: 100px;
-    }
+    background: #FFF;
+    margin: 0 auto;
+    position: relative;
+    max-width: 100px;
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 40px;
+    width: auto;
+    max-width: 200px;
+    margin: 20px auto;
+    text-align: center;
+}
 
 /* jQuery UI CSS */
 .ui-dialog {
