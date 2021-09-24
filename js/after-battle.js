@@ -25,7 +25,10 @@ $(()=>{
     for (i=0;i<14;i++){
         let sn=i
         let removeSn = 'r'+i
-        $('.remove').append($('<button>').text(`Card ${sn}`).attr('id', removeSn))
+        let $button = $('<button>').text(`Card ${sn}`).attr('id', removeSn)
+        $button.attr('href','#card-window')
+        $button.addClass('open-gallery-link')
+        $('.remove').append($button)
         $(`#${removeSn}`).click(function(){
             tom.removeCard(sn)
             $("[id^=r]").css({'display': 'none'})
@@ -46,7 +49,10 @@ $(()=>{
     for (i=4;i<14;i++){
         let addSn = 'a'+i
         let sn = i
-        $('.discover').append($('<button>').text(`Card ${sn}`).attr('id', addSn))
+        let $button = $('<button>').text(`Card ${sn}`).attr('id', addSn)
+        $button.attr('href','#card-window')
+        $button.addClass('open-gallery-link')
+        $('.discover').append($button)
         $(`#${addSn}`).click(function(){
             tom.addCard(sn)
             $("[id^=a]").css({'display': 'none'})

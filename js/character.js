@@ -98,7 +98,9 @@ class Tom extends Character{
     // set on click play to cards
     playButton(sn){
         let playSn = 'p'+sn
-        let $button = $('<button>').text(`Card ${sn}`).attr('id', playSn)
+        let $button = $('<button>').text(`Card ${sn}`)
+        $button.attr('href','#card-window')
+        $button.addClass('open-gallery-link')
         $('.play').append($button)
         $button.on('click', function(event){
             $(event.currentTarget).remove()
