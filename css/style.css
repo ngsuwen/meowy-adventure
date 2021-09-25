@@ -80,18 +80,22 @@
 .up {
     grid-area: up;
     height: 50px;
+    cursor: pointer;
 }
 .down {
     grid-area: down;
     height: 50px;
+    cursor: pointer;
 }
 .left {
     grid-area: left;
     height: 50px;
+    cursor: pointer;
 }
 .right {
     grid-area: right;
     height: 50px;
+    cursor: pointer;
 }
 .cardback {
     height: 50px;
