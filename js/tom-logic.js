@@ -1,4 +1,4 @@
-const tom = new Tom('tom','tom',80,3,[0, 1, 2, 2, 3, 8])
+const tom = new Tom('tom','tom',80,3,[0, 1, 2, 2, 3, 10])
 
 $(()=>{
 
@@ -12,6 +12,9 @@ $(()=>{
     $('#end-turn').click(function(){
         $("[id^=p]").css({'display': 'none'})
         $('#end-turn').css({'display': 'none'})
+        if (mouse.reflect>0){
+            mouse.reflect-=1
+        }
         tom.newTurn()
         tom.shuffleDeck()
         mouseAction()

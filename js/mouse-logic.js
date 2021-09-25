@@ -62,6 +62,9 @@ function mousePlay(){
                 tom.takeDmg(tom.poison)
                 tom.poison-=1
             }
+            if (tom.reflect>0){
+                tom.reflect-=1
+            }
             tom.draw(4)
         }
     }, 500)

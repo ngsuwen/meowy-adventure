@@ -47,9 +47,6 @@ class Character{
         if (this.curse>0){
             this.curse-=1
         }
-        if (this.reflect>0){
-            this.reflect-=1
-        }
         this.double=false
         this.mana = 3    
         $(`.${this.char}Mana`).text('Mana: '+this.mana)
