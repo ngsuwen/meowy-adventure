@@ -19,50 +19,70 @@ function generateGrid(num) {
     }
 }
 
-let currentPoint='1-5'
+let currentPoint='3-4'
 let battle = false
 function move(str) {
     if (!battle){
         const arr=currentPoint.split('-')
         if (str=='up'){
+            $('#cat').attr('class','catup')
             if (arr[0]==3){
                 return
             }
-            $('#cat').attr('class','catup')
             arr[0]=Number(arr[0])-1
-            currentPoint=arr.join('-')
-            $(`.${currentPoint}`).append($cat)
-            checkBox()
+            let currentPointTemp=arr.join('-')
+            if ($(`.${currentPointTemp}`).find('.obstacle').length>0) {
+                return
+            } else {
+                $(`.${currentPointTemp}`).append($cat)
+                currentPoint = currentPointTemp
+                checkBox()
+            }
         }
         if (str=='down'){
+            $('#cat').attr('class','catdown')
             if (arr[0]==9){
                 return
             }
-            $('#cat').attr('class','catdown')
             arr[0]=Number(arr[0])+1
-            currentPoint=arr.join('-')
-            checkBox()
-
+            let currentPointTemp=arr.join('-')
+            if ($(`.${currentPointTemp}`).find('.obstacle').length>0) {
+                return
+            } else {
+                $(`.${currentPointTemp}`).append($cat)
+                currentPoint = currentPointTemp
+                checkBox()
+            }
         }
         if (str=='left'){
+            $('#cat').attr('class','catleft')
             if (arr[1]==1){
                 return
             }
-            $('#cat').attr('class','catleft')
             arr[1]=Number(arr[1])-1
-            currentPoint=arr.join('-')
-            $(`.${currentPoint}`).append($cat)
-            checkBox()
+            let currentPointTemp=arr.join('-')
+            if ($(`.${currentPointTemp}`).find('.obstacle').length>0) {
+                return
+            } else {
+                $(`.${currentPointTemp}`).append($cat)
+                currentPoint = currentPointTemp
+                checkBox()
+            }
         }
         if (str=='right'){
+            $('#cat').attr('class','catright')
             if (arr[1]==10){
                 return
             }
-            $('#cat').attr('class','catright')
             arr[1]=Number(arr[1])+1
-            currentPoint=arr.join('-')
-            $(`.${currentPoint}`).append($cat)
-            checkBox()
+            let currentPointTemp=arr.join('-')
+            if ($(`.${currentPointTemp}`).find('.obstacle').length>0) {
+                return
+            } else {
+                $(`.${currentPointTemp}`).append($cat)
+                currentPoint = currentPointTemp
+                checkBox()
+            }
         }
     }
 }
@@ -84,4 +104,15 @@ $(()=>{
         if(event.which==83){move('down')}
         if(event.which==65){move('left')}
     })
+    // obstacles
+    const $obstacle=$('<div>').addClass('obstacle')
+    for (let i=5;i<=10;i++){
+        $obstacle.clone().appendTo($(`.3-${i}`))
+    }
+    $obstacle.clone().appendTo($('.5-6'))
+    $obstacle.clone().appendTo($('.5-7'))
+    $obstacle.clone().appendTo($('.6-6'))
+    $obstacle.clone().appendTo($('.6-7'))
+    $obstacle.clone().appendTo($('.3-1'))
+    $obstacle.clone().appendTo($('.3-2'))
 })

@@ -4,8 +4,12 @@ const checkBox=()=>{
     if ($(`.${currentPoint}`).find('.box').length>0){
         $(`.${currentPoint}`).children().remove()
         $(`.${currentPoint}`).append($cat)
-        let randomRow = Math.floor(Math.random()*9+1)
+        let randomRow = Math.floor(Math.random()*6+3)
         let randomCol = Math.floor(Math.random()*9+1)
+        while ($(`.${randomRow}-${randomCol}`).find('.obstacle').length>0) {
+            randomRow = Math.floor(Math.random()*6+3)
+            randomCol = Math.floor(Math.random()*9+1)
+        }
         $(`.${randomRow}-${randomCol}`).append($box)
         discover()
         battle = true
