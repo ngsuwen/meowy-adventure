@@ -155,11 +155,17 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         dmgCal(player, against, 8)
+        if (against.hp<=0){
+          return
+        }
         $(`.${against.char}Health`).text('Health: '+against.hp)
         let index = player.hand.indexOf(8)
         player.hand.splice(index,1)
         player.draw(1)
         player.deck.unshift(8)
+        console.log(player.hand)
+        console.log(player.discard)
+        $(`#${player.char}Deck`).text(player.deck)
         player.mana-=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }

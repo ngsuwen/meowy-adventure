@@ -54,13 +54,9 @@ class Character{
         this.mana = 3    
         $(`.${this.char}Mana`).text('Mana: '+this.mana)
         this.hand.forEach(element=>this.deck.push(element))
-        console.log('hand '+this.hand)
         this.hand = []
-        console.log('discard '+this.hand)
-        console.log('discard '+this.discard)
         this.discard.forEach(element=>this.deck.push(element))
         this.discard = []
-        console.log('deck '+this.deck)
         this.shuffleDeck()
         $(`#${this.char}Deck`).text('Deck: '+this.deck)
         $(`.${this.char}Hand`).text('Hand: '+this.hand)
