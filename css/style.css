@@ -1,20 +1,53 @@
 /* main CSS */
-.cat {
-    height: 50px;
+.catright {
+    background: url('../src/catspriteright.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catleft {
+    background: url('../src/catspriteleft.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catup {
+    background: url('../src/catspriteup.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catdown {
+    background: url('../src/catspritedown.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.mouseleft {
+    background: url('../src/mousespriteleft.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.mouseright {
+    background: url('../src/mousespriteright.gif');
+    background-repeat: no-repeat;
+    height: 80px;
 }
 .box {
-    height: 25px;
+    background: url('../src/gem.gif');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 .boss {
-    height: 30px;
-    margin-top: 5px;
-    margin-left: 8px;
+    height: 50px;
+    width: 45px;
 }
 .container {
     display: flex;
     justify-content: center;
 }
 .map {
+    background: url('../src/map1.png');
+    background-size: 520px;
     display: flex;
     flex-direction: column;
     margin: 1em;

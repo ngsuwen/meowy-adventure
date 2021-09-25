@@ -1,4 +1,4 @@
-const $box = $("<img class='box' src='https://opengameart.org/sites/default/files/Treasure%20Chest%20%28Open-Close%29%20GIF.gif'>")
+const $box = $('<div>').addClass('box')
 
 const checkBox=()=>{
     if ($(`.${currentPoint}`).find('.box').length>0){

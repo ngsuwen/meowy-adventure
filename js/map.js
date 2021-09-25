@@ -3,7 +3,7 @@ const makeGridRow=(pointer)=>{
     $(`.row${pointer}`).css({'display': 'flex'})
 }
 
-const $cat = $("<img class='cat' src='https://thumbs.gfycat.com/BouncyFavorableLamb.webp'>")
+const $cat = $('<div>').addClass('catright').attr('id', 'cat')
 
 function generateGrid(num) {
     for (let i=1;i<=num;i++){
@@ -28,6 +28,7 @@ function move(str) {
             if (arr[0]==1){
                 return
             }
+            $('#cat').attr('class','catup')
             arr[0]=Number(arr[0])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
@@ -37,6 +38,7 @@ function move(str) {
             if (arr[0]==10){
                 return
             }
+            $('#cat').attr('class','catdown')
             arr[0]=Number(arr[0])+1
             currentPoint=arr.join('-')
             checkBox()
@@ -46,6 +48,7 @@ function move(str) {
             if (arr[1]==1){
                 return
             }
+            $('#cat').attr('class','catleft')
             arr[1]=Number(arr[1])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
@@ -55,6 +58,7 @@ function move(str) {
             if (arr[1]==10){
                 return
             }
+            $('#cat').attr('class','catright')
             arr[1]=Number(arr[1])+1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
@@ -67,7 +71,7 @@ $(()=>{
     // generate grid map
     generateGrid(10)
     // cat starts at grid (1,1)
-    $('.1-5').append($cat)
+    $('.3-4').append($cat)
     // cat movement (buttons)
     $('.up').click(function(){move('up')})
     $('.down').click(function(){move('down')})

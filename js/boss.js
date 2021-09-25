@@ -1,4 +1,4 @@
-const $boss = $("<img class='boss' src='https://pa1.narvii.com/6373/6e9dfebb7763d13fb5774ce007f137d47444d072_hq.gif'>")
+const $boss = $('<div>').addClass('mouseright').attr('id','mousesprite')
 
 function boss(){
     mouse.name = 'Bossy Mouse'
@@ -33,11 +33,13 @@ function bossMove(){
     if (randomMove<=0.5 && currentBoss[3]<=9 && currentBoss[3]>1){
         let newCo = Number(currentBoss[3])-1
         currentBoss = currentBoss.replace(/.$/,newCo)
+        $boss.attr('class','mouseleft')
         $(`.${currentBoss}`).append($boss)
     }
     if (randomMove>0.5 && currentBoss[3]>=1 && currentBoss[3]<9){
         let newCo = Number(currentBoss[3])+1
         currentBoss = currentBoss.replace(/.$/,newCo)
+        $boss.attr('class','mouseright')
         $(`.${currentBoss}`).append($boss)
     }
 }
