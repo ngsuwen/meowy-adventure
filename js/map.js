@@ -12,7 +12,7 @@ function generateGrid(num) {
         while (j<=num) {
             let gridClass = `${i}-${j}`
             $(`.row${i}`).append($('<div>').addClass(gridClass))
-            $(`.${gridClass}`).css({'width':'50px', 'height':'50px', 'display':'inline-block', 'border':'1px solid black'})
+            $(`.${gridClass}`).css({'width':'50px', 'height':'50px', 'display':'inline-block'})
             $('.map').append($(`.row${i}`))
             j++
         }

@@ -3,7 +3,7 @@ const mouse = new Character('mouse','mouse',30,3,[1])
 const bumpMouse=()=>{
     // randomly bumps into mouse
     random = Math.random()
-    if (random<= 0){
+    if (random<=0.25){
         newMouse()
         battle=true
         $('#tomDeck').hide()
