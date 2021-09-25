@@ -48,11 +48,17 @@
         <!--main page layout: right side map, left side control buttons-->
         <div class='container'>
             <div class='map'></div>
-            <div class='control'>
-                <button class='up'>UP</button>
-                <button class='down'>DOWN</button>
-                <button class='left'>LEFT</button>
-                <button class='right'>RIGHT</button>
+            <div class='bot-container'>
+                <!--Tutorial-->
+                <img href="#first-popup" class="popup-link" src='./src/tutorial-icon.png'><br>
+                <!--Deck-->
+                <img href="#tomDeck" class="popup-link" src='./src/deck-icon.png'>
+                <div class='control'>
+                    <img class='up' src='./src/arrowup.png'>
+                    <img class='down' src='./src/arrowdown.png'>
+                    <img class='left' src='./src/arrowleft.png'>
+                    <img class='right' src='./src/arrowright.png'>
+                </div>
             </div>
         </div>
         <!--Card popup details-->
@@ -61,9 +67,7 @@
               Card description here
             </div>
         </div>
-        <!--Tutorial-->
-        <a href="#first-popup" class="popup-link">Open tutorial page</a><br>
-        <!-- Contents-->
+        <!-- Tutorial Content-->
         <div id="first-popup" class="mfp-hide white-popup">
             Mammy instructed her cat, Tom, to look after the house while she's gone to town. The mice saw this opportunity and invaded the house. Help Tom to defeat all the mice before Mammy comes back home!<br/>  
             <a href="#second-popup" class="popup-link">Next</a>
@@ -93,8 +97,7 @@
             Opening a treasure chest will allow you to pick a new card to add into your deck, and remove a card from your deck<br/>
             Collect powerful cards from the treasure chests and use your new deck to defeat the <b>Bossy Mouse</b>! 
         </div>
-        <a href="#tomDeck" class="popup-link">current deck</a>
-        <!-- Contents-->
+        <!-- Deck Content-->
         <div id="tomDeck" class="mfp-hide white-popup">
             0, 1, 2, 2, 3, 3
         </div>
