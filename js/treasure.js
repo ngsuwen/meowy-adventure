@@ -15,6 +15,7 @@ const checkBox=()=>{
         $(`.${currentPoint}`).append($cat)
         boss()
         battle=true
+        $('#tomDeck').hide()
     } else {
         $(`.${currentPoint}`).append($cat)
         // randomly bumps into mouse

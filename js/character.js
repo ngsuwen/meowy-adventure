@@ -76,6 +76,7 @@ class Character{
                 $('.mouse-info').empty()
                 $('.battle').dialog('close')
                 battle = false
+                $('#tomDeck').show()
             }
         }
     }

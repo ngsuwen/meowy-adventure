@@ -6,6 +6,7 @@ const bumpMouse=()=>{
     if (random<= 0.33){
         newMouse()
         battle=true
+        $('#tomDeck').hide()
     }
 }
 
