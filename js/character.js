@@ -18,7 +18,7 @@ class Character{
             if (this.deck.length>0 && this.hand.length<4){
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
-                $(`.${this.char}Deck`).text('Deck: '+this.deck)
+                $(`#${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
                     let sn = tom.hand[tom.hand.length-1]
@@ -31,7 +31,7 @@ class Character{
                 this.shuffleDeck()
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
-                $(`.${this.char}Deck`).text('Deck: '+this.deck)
+                $(`#${this.char}Deck`).text('Deck: '+this.deck)
                 $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
                     let sn = tom.hand[tom.hand.length-1]
@@ -47,22 +47,22 @@ class Character{
         if (this.curse>0){
             this.curse-=1
         }
-        if (this.poison>0){
-            this.takeDmg(this.poison)
-            this.poison-=1
-        }
         if (this.reflect>0){
             this.reflect-=1
         }
         this.double=false
-        this.mana = 3      
+        this.mana = 3    
         $(`.${this.char}Mana`).text('Mana: '+this.mana)
         this.hand.forEach(element=>this.deck.push(element))
+        console.log('hand '+this.hand)
         this.hand = []
+        console.log('discard '+this.hand)
+        console.log('discard '+this.discard)
         this.discard.forEach(element=>this.deck.push(element))
         this.discard = []
+        console.log('deck '+this.deck)
         this.shuffleDeck()
-        $(`.${this.char}Deck`).text('Deck: '+this.deck)
+        $(`#${this.char}Deck`).text('Deck: '+this.deck)
         $(`.${this.char}Hand`).text('Hand: '+this.hand)
     }
     heal(num){
@@ -77,13 +77,10 @@ class Character{
                 if(!alert('You Died')){window.location.reload()}
             } else {
                 tom.newTurn()
-                $(`[id^='p']`).remove()
+                $("[id^='p']").remove()
                 $('.mouse-info').empty()
                 $('.battle').dialog('close')
                 battle = false
-                // let tom choose from 3 cards to add
-                // discover()
-                // $('.discover').dialog('open')
             }
         }
     }
@@ -94,7 +91,7 @@ class Character{
             var temp = this.deck[i];
             this.deck[i] = this.deck[j];
             this.deck[j] = temp;
-            $(`.${this.char}Deck`).text('Deck: '+this.deck)
+            $(`#${this.char}Deck`).text('Deck: '+this.deck)
         }
     }
 }
@@ -105,14 +102,14 @@ class Tom extends Character{
         // add card to deck
         tom.deck.push(sn)
         // update UI
-        $('.tomDeck').text('Deck: '+tom.deck)
+        $('#tomDeck').text('Deck: '+tom.deck)
     }
     removeCard(sn){
         // add card to deck
         let indexFound = tom.deck.indexOf(sn)
         tom.deck.splice(indexFound,1)
         // update UI
-        $('.tomDeck').text('Deck: '+tom.deck)
+        $('#tomDeck').text('Deck: '+tom.deck)
     }
     // set on click play to cards
     playButton(sn){
@@ -121,7 +118,7 @@ class Tom extends Character{
         $button.attr('href','#card-window')
         $button.attr('id', playSn)
         $button.addClass('open-gallery-link')
-        $('.play').append($button)
+        $('.play').prepend($button)
         $button.on('click', function(event){
             $(event.currentTarget).remove()
             cardList[sn].play(tom, mouse)

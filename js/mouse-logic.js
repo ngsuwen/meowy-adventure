@@ -3,7 +3,7 @@ const mouse = new Character('mouse','mouse',20,3,[1])
 const bumpMouse=()=>{
     // randomly bumps into mouse
     random = Math.random()
-    if (random<= 0.5){
+    if (random<= 0.33){
         newMouse()
         battle=true
     }
@@ -30,16 +30,24 @@ const randomPlay=()=>{
 }
 
 const mouseAction = ()=>{
-        const drawInterval = setInterval(()=>{
-            if (mouse.hand.length <4){
-                mouse.draw(1)
-                $('.mouse').append($('<div>').addClass('cardback'))
-            } else {
-                clearInterval(drawInterval)
-                mousePlay()
-            }
-        }, 500)
+    if (mouse.poison>0){
+        mouse.takeDmg(mouse.poison)
+        mouse.poison-=1
     }
+    if (mouse.hp<=0){
+        $('#end-turn').css({'display': 'block'})
+        return
+    }
+    const drawInterval = setInterval(()=>{
+        if (mouse.hand.length <4){
+            mouse.draw(1)
+            $('.mouse').append($('<div>').addClass('cardback'))
+        } else {
+            clearInterval(drawInterval)
+            mousePlay()
+        }
+    }, 500)
+}
 
 function mousePlay(){
     const playInterval = setInterval(()=>{
@@ -50,6 +58,10 @@ function mousePlay(){
             $('.cardback').remove()
             $('#end-turn').css({'display': 'block'})
             mouse.newTurn()
+            if (tom.poison>0){
+                tom.takeDmg(tom.poison)
+                tom.poison-=1
+            }
             tom.draw(4)
         }
     }, 500)
@@ -60,7 +72,16 @@ async function newMouse(){
     mouse.hp = 16
     mouse.mana = 3
     mouse.deck = [0, 1, 2, 3, 0, 9]
-    const $h3 = $('<h3>').text(mouse.name + ' Profile')
+    mouse.double = false
+    mouse.poison = 0
+    mouse.weak = 0
+    mouse.curse = 0
+    tom.double = false
+    tom.poison = 0
+    tom.weak = 0
+    tom.curse = 0
+    const $h3 = $('<h3>').text(mouse.name)
+    const $effect = $('<div>').addClass('mouseEffect')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
     const $mouseInfoDialog = $('.mouse')

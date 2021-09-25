@@ -21,16 +21,6 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <p>Mammy instructed her cat, Tom, to look after the house while she's gone to town. The mice saw this opportunity and invaded the house. Help Tom to defeat all the mice before Mammy comes back home!</p>
-        <h3>Tom's Profile</h3>
-        <div class='tomHealth'>
-        </div>
-        <div class='tomMana'>
-        </div>
-        <div class='tomDeck'>
-        </div>
-        <div class ='tomHand'>
-        </div>
         <!--Discover popup div-->
         <div class='discover'>
             <button id='skip-add'>skip</button>
@@ -42,6 +32,14 @@
         <!--Battle popup div-->
         <div class='battle'>
             <div class='mouse'>
+            </div>
+            <div class='tom'>    
+                <h3>Tom</h3>
+                <div class='tomEffect'></div>
+                <div class='tomHealth'>
+                </div>
+                <div class='tomMana'>
+                </div>
             </div>
             <div class='play'>
                 <button id='end-turn'>end turn</button>
@@ -64,7 +62,7 @@
             </div>
         </div>
         <!--Tutorial-->
-        <a href="#first-popup" class="popup-link">Open tutorial page</a>
+        <a href="#first-popup" class="popup-link">Open tutorial page</a><br>
         <!-- Contents-->
         <div id="first-popup" class="mfp-hide white-popup">
             Mammy instructed her cat, Tom, to look after the house while she's gone to town. The mice saw this opportunity and invaded the house. Help Tom to defeat all the mice before Mammy comes back home!<br/>  
@@ -94,6 +92,11 @@
         <div id="seventh-popup" class="mfp-hide white-popup">
             Opening a treasure chest will allow you to pick a new card to add into your deck, and remove a card from your deck<br/>
             Collect powerful cards from the treasure chests and use your new deck to defeat the <b>Bossy Mouse</b>! 
+        </div>
+        <a href="#tomDeck" class="popup-link">current deck</a>
+        <!-- Contents-->
+        <div id="tomDeck" class="mfp-hide white-popup">
+            0, 1, 2, 2, 3, 3
         </div>
     </body>
 </html>

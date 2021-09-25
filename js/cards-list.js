@@ -1,7 +1,3 @@
-// combat cards: attack and defense
-// magic cards: buffs, debuffs, heal, special effect
-// play function: remove from hand, effect
-
 function cardStandard(player, sn){
   let index = player.hand.indexOf(sn)
   player.discard.push(player.hand[index])
@@ -18,6 +14,7 @@ function dmgCal(player, against, base){
   }
   if (player.double) {
     multiplier *=2
+    player.double=false
   }
   let damage = base*multiplier
   against.takeDmg(damage)
@@ -35,6 +32,7 @@ function healCal(player, base){
   }
   if (player.double) {
     multiplier*=2
+    player.double=false
   }
   let heal = base*multiplier
   player.heal(heal)
@@ -76,6 +74,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.weak+=3
+        console.log(`${player.name} casted weak on ${against.name}`)
         }
     },
     effect: 'Apply 3 weak. Weakened characters will deal 50% less damage for X turns.'
@@ -88,6 +87,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.poison+=3
+        console.log(`${player.name} casted poison on ${against.name}`)
         }
     },
     effect: 'Apply 3 poison. Poisoned characters will take X damage at the end of their turn. Poison count decrease by 1.'
@@ -100,6 +100,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.curse+=3
+        console.log(`${player.name} casted curse on ${against.name}`)
         }
     },
     effect: 'Apply 3 curse. Cursed characters will heal 50% less for X turns.'
@@ -192,6 +193,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         player.reflect+=1
+        console.log(`${player.name} casted reflect on himself`)
         }
     },
     effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
