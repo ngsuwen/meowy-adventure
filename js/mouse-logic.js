@@ -1,4 +1,4 @@
-const mouse = new Character('mouse','mouse',20,3,[1])
+const mouse = new Character('mouse','mouse',30,3,[1])
 
 const bumpMouse=()=>{
     // randomly bumps into mouse
@@ -72,7 +72,7 @@ function mousePlay(){
 
 async function newMouse(){
     mouse.name = await getName()
-    mouse.hp = 16
+    mouse.hp = 20
     mouse.mana = 3
     mouse.deck = [0, 1, 2, 3, 0, 9]
     mouse.double = false
