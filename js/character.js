@@ -71,6 +71,8 @@ class Character{
         if (this.hp<=0){
             if (this.char == 'tom'){
                 if(!alert('You Died')){window.location.reload()}
+            } else if (this.name == 'Bossy Mouse'){
+                if(!alert('You Win!')){window.location.reload()}
             } else {
                 tom.newTurn()
                 $("[id^='p']").remove()

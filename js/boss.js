@@ -1,19 +1,18 @@
 const $boss = $("<img class='boss' src='https://pa1.narvii.com/6373/6e9dfebb7763d13fb5774ce007f137d47444d072_hq.gif'>")
 
-const checkBoss=()=>{
-    if ($(`.${currentPoint}`).find('.boss').length>0){
-        $(`.${currentPoint}`).children().remove()
-        $(`.${currentPoint}`).append($cat)
-        boss()
-        battle=false
-    }
-}
-
 function boss(){
     mouse.name = 'Bossy Mouse'
-    mouse.hp = 30
-    mouse.mana = 4
-    mouse.deck = [0, 1, 2, 4, 9, 6, 5, 8]
+    mouse.hp = 50
+    mouse.mana = 5
+    mouse.deck = [0, 1, 2, 4, 9, 6, 5, 8, 12, 13]
+    mouse.double = false
+    mouse.poison = 0
+    mouse.weak = 0
+    mouse.curse = 0
+    tom.double = false
+    tom.poison = 0
+    tom.weak = 0
+    tom.curse = 0
     const $h3 = $('<h3>').text(mouse.name + ' Profile')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)

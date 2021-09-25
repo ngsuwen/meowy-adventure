@@ -31,7 +31,6 @@ function move(str) {
             arr[0]=Number(arr[0])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            checkBoss()
             checkBox()
         }
         if (str=='down'){
@@ -40,7 +39,6 @@ function move(str) {
             }
             arr[0]=Number(arr[0])+1
             currentPoint=arr.join('-')
-            checkBoss()
             checkBox()
 
         }
@@ -51,7 +49,6 @@ function move(str) {
             arr[1]=Number(arr[1])-1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            checkBoss()
             checkBox()
         }
         if (str=='right'){
@@ -61,7 +58,6 @@ function move(str) {
             arr[1]=Number(arr[1])+1
             currentPoint=arr.join('-')
             $(`.${currentPoint}`).append($cat)
-            checkBoss()
             checkBox()
         }
     }

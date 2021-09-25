@@ -10,6 +10,11 @@ const checkBox=()=>{
         discover()
         battle = true
         $('.discover').dialog('open')
+    } else if ($(`.${currentPoint}`).find('.boss').length>0){
+        $(`.${currentPoint}`).children().remove()
+        $(`.${currentPoint}`).append($cat)
+        boss()
+        battle=true
     } else {
         $(`.${currentPoint}`).append($cat)
         // randomly bumps into mouse

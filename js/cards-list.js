@@ -228,7 +228,7 @@ const cardList = [{
         player.double=true
         }
     },
-    effect: 'The next card you play will have doubled effect.'
+    effect: 'The next [heal] or [damage] card you play will have doubled effect.'
   },
   {
     sn: 13,
