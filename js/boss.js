@@ -27,17 +27,17 @@ function boss(){
     tom.draw(4)
 }
 
-let currentBoss='10-5'
+let currentBoss='9-5'
 function bossMove(){
     let randomMove = Math.random()
-    if (randomMove<=0.5 && currentBoss[3]<=9 && currentBoss[3]>1){
-        let newCo = Number(currentBoss[3])-1
+    if (randomMove<=0.5 && currentBoss[2]<=9 && currentBoss[2]>1){
+        let newCo = Number(currentBoss[2])-1
         currentBoss = currentBoss.replace(/.$/,newCo)
         $boss.attr('class','mouseleft')
         $(`.${currentBoss}`).append($boss)
     }
-    if (randomMove>0.5 && currentBoss[3]>=1 && currentBoss[3]<9){
-        let newCo = Number(currentBoss[3])+1
+    if (randomMove>0.5 && currentBoss[2]>=1 && currentBoss[2]<9){
+        let newCo = Number(currentBoss[2])+1
         currentBoss = currentBoss.replace(/.$/,newCo)
         $boss.attr('class','mouseright')
         $(`.${currentBoss}`).append($boss)
@@ -48,4 +48,4 @@ let moveInterval = setInterval(function() {
   if(!battle) {
     bossMove();
   }
-}, 2500);
+}, 2000);

@@ -24,5 +24,5 @@ const checkBox=()=>{
 }
 
 $(()=>{ 
-    $('.3-5').append($box)
+    $('.5-3').append($box)
 })

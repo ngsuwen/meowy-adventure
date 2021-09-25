@@ -25,7 +25,7 @@ function move(str) {
     if (!battle){
         const arr=currentPoint.split('-')
         if (str=='up'){
-            if (arr[0]==1){
+            if (arr[0]==3){
                 return
             }
             $('#cat').attr('class','catup')
@@ -35,7 +35,7 @@ function move(str) {
             checkBox()
         }
         if (str=='down'){
-            if (arr[0]==10){
+            if (arr[0]==9){
                 return
             }
             $('#cat').attr('class','catdown')
