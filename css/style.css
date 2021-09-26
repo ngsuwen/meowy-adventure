@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 /* main CSS */
+body {
+    font-family: 'VT323', monospace;
+}
 .catright {
     background: url('../src/catspriteright.gif');
     background-repeat: no-repeat;
@@ -118,15 +122,33 @@
     margin-bottom: auto;
 }
 .white-popup {
+    text-align: top;
     position: relative;
-    background: #FFF;
-    padding: 40px;
-    width: auto;
-    max-width: 200px;
+    background: rgb(240, 218, 193);
+    border-radius: 0.2em;
+    border: 2px solid black;
+    padding: 20px;
+    width: 450px;
     margin: 20px auto;
-    text-align: center;
 }
-
+.white-popup:after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgb(194, 174, 152);
+    border: 0.1em solid black;
+    z-index: -1;
+}
+#close-button, #next-button {
+    float: right;
+    float: bottom;
+    text-decoration: none;
+    color: rgb(117, 0, 0);
+    cursor: pointer;
+}
 /* jQuery UI CSS */
 .ui-dialog {
     font-family: Verdana,Arial,sans-serif;
