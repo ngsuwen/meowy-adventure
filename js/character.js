@@ -85,7 +85,7 @@ class Character{
             } else {
                 tom.newTurn()
                 $("[id^='p']").remove()
-                $('.mouse-info').empty()
+                $('.mouse-info').remove()
                 $('.battle').dialog('close')
                 battle = false
                 $('#tomDeck').show()

@@ -99,10 +99,20 @@ async function newMouse(){
     mouse.poison = 0
     mouse.weak = 0
     mouse.curse = 0
+    mouse.reflect = 0
     tom.double = false
     tom.poison = 0
     tom.weak = 0
     tom.curse = 0
+    tom.reflect = 0
+    $('.reflecttom').remove()
+    $('.reflectmouse').remove()
+    $('.cursetom').remove()
+    $('.cursemouse').remove()
+    $('.weaktom').remove()
+    $('.weakmouse').remove()
+    $('.poisontom').remove()
+    $('.poisonmouse').remove()
     const $h3 = $('<h3>').text(mouse.name)
     const $effect = $('<div>').addClass('mouseEffect')
     const $health = $('<div>').addClass('mouseHealth')

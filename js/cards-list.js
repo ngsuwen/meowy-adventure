@@ -222,7 +222,7 @@ const cardList = [{
           num += 1
           $(`.reflect${player.char}`).text(num)
         }
-        against.reflect+=1
+        player.reflect+=1
       }
     },
     effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
