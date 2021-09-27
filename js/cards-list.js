@@ -122,6 +122,7 @@ const cardList = [{
         cardStandard(player, this.sn)
         dmgCal(player, against, 4)
         player.mana+=1
+        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
     effect: 'Deal 4 damage, increase mana by 1 for this turn.'
