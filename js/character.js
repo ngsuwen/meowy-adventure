@@ -43,9 +43,19 @@ class Character{
     newTurn(){
         if (this.weak>0){
             this.weak-=1
+            if (this.weak==0){
+                $(`.weak${this.char}`).remove()
+            } else {
+                $(`.weak${this.char}`).text(this.weak)
+            }
         }
         if (this.curse>0){
             this.curse-=1
+            if (this.curse==0){
+                $(`.curse${this.char}`).remove()
+            } else {
+                $(`.curse${this.char}`).text(this.curse)
+            }
         }
         this.double=false
         this.mana = 3    

@@ -14,6 +14,11 @@ $(()=>{
         $('#end-turn').css({'display': 'none'})
         if (mouse.reflect>0){
             mouse.reflect-=1
+            if (mouse.reflect==0){
+                $('.reflectmouse').remove()
+            } else {
+                $('.reflectmouse').text(mouse.reflect)
+            }
         }
         tom.newTurn()
         tom.shuffleDeck()

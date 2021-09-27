@@ -3,7 +3,7 @@ const mouse = new Character('mouse','mouse',30,3,[1])
 const bumpMouse=()=>{
     // randomly bumps into mouse
     random = Math.random()
-    if (random<=0){
+    if (random<=0.25){
         newMouse()
         battle=true
         $('#tomDeck').hide()
@@ -38,6 +38,11 @@ const mouseAction = ()=>{
     if (mouse.poison>0){
         mouse.takeDmg(mouse.poison)
         mouse.poison-=1
+        if (mouse.poison==0){
+            $('.poisonmouse').remove()
+        } else {
+            $('.poisonmouse').text(mouse.poison)
+        }
     }
     if (mouse.hp<=0){
         $('#end-turn').css({'display': 'block'})
@@ -66,9 +71,19 @@ function mousePlay(){
             if (tom.poison>0){
                 tom.takeDmg(tom.poison)
                 tom.poison-=1
+                if (tom.poison==0){
+                    $('.poisontom').remove()
+                } else {
+                    $('.poisontom').text(tom.poison)
+                }
             }
             if (tom.reflect>0){
                 tom.reflect-=1
+                if (tom.reflect==0){
+                    $('.reflecttom').remove()
+                } else {
+                    $('.reflecttom').text(tom.reflect)
+                }
             }
             tom.draw(4)
         }

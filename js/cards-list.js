@@ -71,8 +71,17 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.weak+=3
+        if (against.weak==0){
+          const $weak=$('<div>').addClass(`weak${against.char}`)
+          $(`.${against.char}`).children().append($weak)
+          $weak.text('3')
+        } else {
+          let num = Number($(`.weak${against.char}`).text())
+          num += 3
+          $(`.weak${against.char}`).text(num)
         }
+        against.weak+=3
+      }
     },
     effect: 'Apply 3 weak. Weakened characters will deal 50% less damage for X turns.'
   },
@@ -83,8 +92,17 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.poison+=3
+        if (against.poison==0){
+          const $poison=$('<div>').addClass(`poison${against.char}`)
+          $(`.${against.char}`).children().append($poison)
+          $poison.text('3')
+        } else {
+          let num = Number($(`.poison${against.char}`).text())
+          num += 3
+          $(`.poison${against.char}`).text(num)
         }
+        against.poison+=3
+      }
     },
     effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
   },
@@ -95,8 +113,17 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        against.curse+=3
+        if (against.curse==0){
+          const $curse=$('<div>').addClass(`curse${against.char}`)
+          $(`.${against.char}`).children().append($curse)
+          $curse.text('3')
+        } else {
+          let num = Number($(`.curse${against.char}`).text())
+          num += 3
+          $(`.curse${against.char}`).text(num)
         }
+        against.curse+=3
+      }
     },
     effect: 'Apply 3 curse. Cursed characters will heal 50% less for X turns.'
   },
@@ -186,8 +213,17 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        player.reflect+=1
+        if (player.reflect==0){
+          const $reflect=$('<div>').addClass(`reflect${player.char}`)
+          $(`.${player.char}`).children().append($reflect)
+          $reflect.text('1')
+        } else {
+          let num = Number($(`.reflect${player.char}`).text())
+          num += 1
+          $(`.reflect${player.char}`).text(num)
         }
+        against.reflect+=1
+      }
     },
     effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
   },
