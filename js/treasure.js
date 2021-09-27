@@ -14,7 +14,7 @@ const checkBox=()=>{
         discover()
         battle = true
         $('.discover').dialog('open')
-    } else if ($(`.${currentPoint}`).find('.boss').length>0){
+    } else if ($(`.${currentPoint}`).find('#mousesprite').length>0){
         $(`.${currentPoint}`).children().remove()
         $(`.${currentPoint}`).append($cat)
         boss()
