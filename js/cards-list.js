@@ -182,7 +182,7 @@ const cardList = [{
         player.hand.splice(index,1)
         player.draw(1)
         player.deck.unshift(8)
-        $(`#${player.char}Deck`).text(player.deck)
+        // $(`#${player.char}Deck`).text(player.deck)
         player.mana-=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }

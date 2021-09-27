@@ -18,8 +18,8 @@ class Character{
             if (this.deck.length>0 && this.hand.length<4){
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
-                $(`#${this.char}Deck`).text('Deck: '+this.deck)
-                $(`.${this.char}Hand`).text('Hand: '+this.hand)
+                // $(`#${this.char}Deck`).text('Deck: '+this.deck)
+                // $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
                     let sn = tom.hand[tom.hand.length-1]
                     this.playButton(sn)
@@ -31,8 +31,8 @@ class Character{
                 this.shuffleDeck()
                 this.hand.push(this.deck[0])
                 this.deck.splice(0, 1)
-                $(`#${this.char}Deck`).text('Deck: '+this.deck)
-                $(`.${this.char}Hand`).text('Hand: '+this.hand)
+                // $(`#${this.char}Deck`).text('Deck: '+this.deck)
+                // $(`.${this.char}Hand`).text('Hand: '+this.hand)
                 if (this.char=='tom'){
                     let sn = tom.hand[tom.hand.length-1]
                     this.playButton(sn)
@@ -65,8 +65,8 @@ class Character{
         this.discard.forEach(element=>this.deck.push(element))
         this.discard = []
         this.shuffleDeck()
-        $(`#${this.char}Deck`).text('Deck: '+this.deck)
-        $(`.${this.char}Hand`).text('Hand: '+this.hand)
+        // $(`#${this.char}Deck`).text('Deck: '+this.deck)
+        // $(`.${this.char}Hand`).text('Hand: '+this.hand)
     }
     heal(num){
         this.hp += num
@@ -99,7 +99,6 @@ class Character{
             var temp = this.deck[i];
             this.deck[i] = this.deck[j];
             this.deck[j] = temp;
-            $(`#${this.char}Deck`).text('Deck: '+this.deck)
         }
     }
 }
@@ -110,14 +109,14 @@ class Tom extends Character{
         // add card to deck
         tom.deck.push(sn)
         // update UI
-        $('#tomDeck').text('Deck: '+tom.deck)
+        addToDeck(sn)
     }
     removeCard(sn){
         // add card to deck
         let indexFound = tom.deck.indexOf(sn)
         tom.deck.splice(indexFound,1)
         // update UI
-        $('#tomDeck').text('Deck: '+tom.deck)
+        removeFromDeck(sn)
     }
     // set on click play to cards
     playButton(sn){
