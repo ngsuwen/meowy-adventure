@@ -48,7 +48,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         dmgCal(player, against, 6)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
     effect: 'Deal 6 damage'
@@ -61,7 +60,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         healCal(player, 4)
-        $(`.${player.char}Health`).text('Health: '+player.hp)
       }
     },
     effect: 'Heal 4 health'
@@ -74,7 +72,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.weak+=3
-        console.log(`${player.name} casted weak on ${against.name}`)
         }
     },
     effect: 'Apply 3 weak. Weakened characters will deal 50% less damage for X turns.'
@@ -87,7 +84,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.poison+=3
-        console.log(`${player.name} casted poison on ${against.name}`)
         }
     },
     effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
@@ -100,7 +96,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         against.curse+=3
-        console.log(`${player.name} casted curse on ${against.name}`)
         }
     },
     effect: 'Apply 3 curse. Cursed characters will heal 50% less for X turns.'
@@ -114,8 +109,6 @@ const cardList = [{
         cardStandard(player, this.sn)
         dmgCal(player, against, 4)
         healCal(player, 4)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
-        $(`.${player.char}Health`).text('Health: '+player.hp)
         }
     },
     effect: 'Deal 4 damage, heal 4 health.'
@@ -129,8 +122,6 @@ const cardList = [{
         cardStandard(player, this.sn)
         dmgCal(player, against, 4)
         player.mana+=1
-        $(`.${against.char}Health`).text('Health: '+against.hp)
-        $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
     },
     effect: 'Deal 4 damage, increase mana by 1 for this turn.'
@@ -163,8 +154,6 @@ const cardList = [{
         player.hand.splice(index,1)
         player.draw(1)
         player.deck.unshift(8)
-        console.log(player.hand)
-        console.log(player.discard)
         $(`#${player.char}Deck`).text(player.deck)
         player.mana-=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
@@ -185,9 +174,7 @@ const cardList = [{
         } else {
           player.takeDmg(2)
         }
-        $(`.${against.char}Health`).text('Health: '+against.hp)
-        $(`.${player.char}Health`).text('Health: '+player.hp)
-        }
+      }
     },
     effect: 'Take 2 damage. Deal 12 damage.'
   },
@@ -199,7 +186,6 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         player.reflect+=1
-        console.log(`${player.name} casted reflect on himself`)
         }
     },
     effect: 'Cast reflect. Characters with reflect will deal 50% of damage received back to enemy.'
@@ -213,7 +199,6 @@ const cardList = [{
         cardStandard(player, this.sn)
         let num = 2*(Math.floor((80-player.hp)/5))
         dmgCal(player, against, num)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
         }
     },
     effect: 'Deal 2 damange for every 5 health you have lost.'
@@ -237,7 +222,6 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         healCal(player, 30)
-        $(`.${against.char}Health`).text('Health: '+against.hp)
         let index = player.hand.indexOf(8)
         player.hand.splice(index,1)
         player.draw(1)

@@ -61,10 +61,12 @@ class Character{
     heal(num){
         this.hp += num
         $(`.${this.char}Health`).text('Health: '+this.hp)
+        $(`.${this.char}Health`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
     }
     takeDmg(num){
         this.hp-=num
         $(`.${this.char}Health`).text('Health: '+this.hp)
+        $(`.${this.char}Health`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         if (this.hp<=0){
             if (this.char == 'tom'){
                 if(!alert('You Died')){window.location.reload()}

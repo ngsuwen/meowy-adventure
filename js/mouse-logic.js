@@ -14,18 +14,22 @@ const randomPlay=()=>{
     random = Math.random()
     if (random<=0.25){
         cardList[mouse.hand[0]].play(mouse, tom)
+        $($('.cardback')[0]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         //$($('.cardback')[0]).remove()
     }
     if (random<=0.5 && random>0.25){
         cardList[mouse.hand[1]].play(mouse, tom)
+        $($('.cardback')[1]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         //$($('.cardback')[0]).remove()
     }
     if (random<=0.75 && random>0.5){
         cardList[mouse.hand[2]].play(mouse, tom)
+        $($('.cardback')[2]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         //$($('.cardback')[0]).remove()
     }
     if (random>0.75){
         cardList[mouse.hand[3]].play(mouse, tom)
+        $($('.cardback')[3]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         //$($('.cardback')[0]).remove()
     }
 }
@@ -42,7 +46,7 @@ const mouseAction = ()=>{
     const drawInterval = setInterval(()=>{
         if (mouse.hand.length <4){
             mouse.draw(1)
-            $('.mouse').append($('<div>').addClass('cardback'))
+            $('.mouse').append($('<img>').attr('src','./src/cardback.png').addClass('cardback'))
         } else {
             clearInterval(drawInterval)
             mousePlay()
@@ -68,7 +72,7 @@ function mousePlay(){
             }
             tom.draw(4)
         }
-    }, 500)
+    }, 1000)
 }
 
 async function newMouse(){

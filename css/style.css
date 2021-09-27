@@ -102,9 +102,7 @@ body {
     cursor: pointer;
 }
 .cardback {
-    height: 50px;
-    width: 30px;
-    background-color: aquamarine;
+    height: 75px;
     margin: 1px;
     display: inline-block;
 }
