@@ -157,7 +157,9 @@ body {
     padding: 5px;
     padding-bottom: 20px;
 }
-
+.open-gallery-link {
+    height: 85px;
+}
 /* jQuery UI CSS */
 .ui-dialog .ui-dialog-titlebar {
     display: none;

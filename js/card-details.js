@@ -1,6 +1,6 @@
 $(()=>{
     $(document).on('mousedown','.open-gallery-link', (function(event) {
-      let sn=$(event.currentTarget).text().slice(4)
+      let sn=$(event.currentTarget).attr('id').substr(1)
       $('.card-detail').text(cardList[Number(sn)].effect)
       var items = [];
       $( $(this).attr('href') ).find('.card-detail').each(function() {

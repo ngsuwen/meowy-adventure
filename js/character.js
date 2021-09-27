@@ -110,7 +110,7 @@ class Tom extends Character{
     // set on click play to cards
     playButton(sn){
         let playSn = 'p'+sn
-        let $button = $('<button>').text(`Card ${sn}`)
+        let $button = $('<img>').attr('src',`./src/${sn}.png`)
         $button.attr('href','#card-window')
         $button.attr('id', playSn)
         $button.addClass('open-gallery-link')

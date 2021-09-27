@@ -90,7 +90,7 @@ const cardList = [{
         console.log(`${player.name} casted poison on ${against.name}`)
         }
     },
-    effect: 'Apply 3 poison. Poisoned characters will take X damage at the end of their turn. Poison count decrease by 1.'
+    effect: 'Apply 3 poison. Poisoned characters will take X damage at the start of their turn. Poison count decrease by 1.'
   },
   {
     sn: 4,
