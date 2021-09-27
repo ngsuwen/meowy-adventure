@@ -159,6 +159,15 @@ body {
 }
 .open-gallery-link {
     height: 85px;
+    cursor: pointer;
+}
+button {
+    display: block;
+    border-radius: 0.4em;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
 }
 /* jQuery UI CSS */
 .ui-dialog .ui-dialog-titlebar {
