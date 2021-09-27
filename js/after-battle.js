@@ -5,14 +5,14 @@ function discover(){
         let randomIndex = Math.floor(Math.random()*(cards.length-1))
         let card = cards[randomIndex]
         cards.splice(randomIndex,1)
-        $(`#a${card}`).css({'display':'block'})
+        $(`#a${card}`).css({'display':'inline'})
     }
 }
 
 // pick one card to remove from deck
 function remove(){
     for (let i of tom.deck){
-        $(`#r${i}`).css({'display':'block'})
+        $(`#r${i}`).css({'display':'inline'})
     }
 }
 
@@ -25,10 +25,11 @@ $(()=>{
     for (i=0;i<14;i++){
         let sn=i
         let removeSn = 'r'+i
-        let $button = $('<button>').text(`Card ${sn}`).attr('id', removeSn)
+        let $button = $('<img>').attr('src',`./src/${sn}.png`)
+        $button.attr('id', removeSn)
         $button.attr('href','#card-window')
         $button.addClass('open-gallery-link')
-        $('.remove').append($button)
+        $('.remove').prepend($button)
         $(`#${removeSn}`).click(function(){
             tom.removeCard(sn)
             $("[id^=r]").css({'display': 'none'})
@@ -49,10 +50,11 @@ $(()=>{
     for (i=4;i<14;i++){
         let addSn = 'a'+i
         let sn = i
-        let $button = $('<button>').text(`Card ${sn}`).attr('id', addSn)
+        let $button = $('<img>').attr('src',`./src/${sn}.png`)
+        $button.attr('id', addSn)
         $button.attr('href','#card-window')
         $button.addClass('open-gallery-link')
-        $('.discover').append($button)
+        $('.discover').prepend($button)
         $(`#${addSn}`).click(function(){
             tom.addCard(sn)
             $("[id^=a]").css({'display': 'none'})
