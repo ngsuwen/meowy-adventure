@@ -28,7 +28,7 @@ function dmgCal(player, against, base){
 function healCal(player, base){
   let multiplier = 1
   if (player.curse>0){
-    multiplier/2
+    multiplier/=2
   }
   if (player.double) {
     multiplier*=2
@@ -147,9 +147,9 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         cardStandard(player, this.sn)
-        dmgCal(player, against, 4)
         player.mana+=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
+        dmgCal(player, against, 4)
         }
     },
     effect: 'Deal 4 damage, increase mana by 1 for this turn.'
@@ -232,10 +232,12 @@ const cardList = [{
     play: function(player, against) {
       if (player.mana==0){
         alert('no mana, please end turn')
-      } else {
+      } else if (80-player.hp>0) {
         cardStandard(player, this.sn)
         let num = 2*(Math.floor((80-player.hp)/5))
         dmgCal(player, against, num)
+        } else {
+          return
         }
     },
     effect: 'Deal 2 damange for every 5 health you have lost.'
@@ -259,13 +261,15 @@ const cardList = [{
         alert('no mana, please end turn')
       } else {
         healCal(player, 30)
-        let index = player.hand.indexOf(8)
+        let index = player.hand.indexOf(13)
         player.hand.splice(index,1)
         player.draw(1)
         player.mana-=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
+        $($('#d13')[0]).remove()
+        player.addCard(1)
     },
-    effect: 'Heal 30 health. Remove this from the deck permanently.'
+    effect: 'Heal 30 health. This card will be replaced by Heal permanently after use. Heal: Heal 4 health.'
   }
 ]

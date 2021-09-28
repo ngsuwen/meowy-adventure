@@ -31,10 +31,14 @@ $(()=>{
         $button.addClass('open-gallery-link')
         $('.remove').prepend($button)
         $(`#${removeSn}`).click(function(){
-            tom.removeCard(sn)
-            $("[id^=r]").css({'display': 'none'})
-            $('.remove').dialog('close')
-            battle=false
+            if (tom.deck.length <=5){
+                alert('Minimum 5 cards in the deck!')
+            } else {
+                tom.removeCard(sn)
+                $("[id^=r]").css({'display': 'none'})
+                $('.remove').dialog('close')
+                battle=false
+            }
         })
         $(`#${removeSn}`).css({'display': 'none'})
     }
