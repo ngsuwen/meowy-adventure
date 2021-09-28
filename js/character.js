@@ -79,7 +79,12 @@ class Character{
         $(`.${this.char}Health`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         if (this.hp<=0){
             if (this.char == 'tom'){
-                if(!alert('You Died')){window.location.reload()}
+                $.magnificPopup.open({
+                    items:{
+                        src: '#gameover',
+                        type:'inline'}
+                    })
+                newgame()
             } else if (this.name == 'Bossy Mouse'){
                 if(!alert('You Win!')){window.location.reload()}
             } else {

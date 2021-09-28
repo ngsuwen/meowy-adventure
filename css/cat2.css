@@ -1,0 +1,20 @@
+.catright {
+    background: url('../src/mousespriteright.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catleft {
+    background: url('../src/mousespriteleft.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catup {
+    background: url('../src/mousespriteleft.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}
+.catdown {
+    background: url('../src/mousespriteright.gif');
+    background-repeat: no-repeat;
+    height: 80px;
+}

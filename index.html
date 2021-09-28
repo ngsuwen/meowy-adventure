@@ -17,8 +17,10 @@
         <script src="./js/mouse-name.js"></script>
         <script src="./js/mouse-logic.js"></script>
         <script src="./js/after-battle.js"></script>
+        <script src="./js/newgame.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" id='catcss' href="./css/cat1.css">
     </head>
     <body>
         <!--Discover popup div-->
@@ -35,7 +37,7 @@
             </div>
             <div class='tom'>    
                 <div class='tom-info'> 
-                    <h3>Tom</h3>
+                    <h3 id='tomName'>Tom</h3>
                     <div class='tomEffect'></div>
                     <div class='tomHealth'></div>
                     <div class='tomMana'></div>
@@ -100,12 +102,15 @@
         </div>
         <!-- Deck Content-->
         <div id="tomDeck" class="mfp-hide white-popup">
-            <img id='d10' src='src/10.png'>
-            <img id='d11' src='src/11.png'>
-            <img id='d12' src='src/12.png'>
-            <img id='d13' src='src/13.png'>
+            <img id='d0' src='src/0.png'>
+            <img id='d1' src='src/1.png'>
+            <img id='d2' src='src/2.png'>
+            <img id='d2' src='src/2.png'>
             <img id='d3' src='src/3.png'>
             <img id='d3' src='src/3.png'>
+        </div>
+        <div id="gameover" class="mfp-hide white-popup">
+            Mammy came back and saw that the house is infested with mice. She was not happy with your performance and replaced you with another cat :(
         </div>
     </body>
 </html>
