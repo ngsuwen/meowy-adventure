@@ -21,8 +21,6 @@ function dmgCal(player, against, base){
   if (against.reflect>0){
     player.takeDmg(Math.floor(damage/2))
   }
-  console.log(`${player.char} deal ${damage} to ${against.char}`)
-  console.log(`Weak: ${player.weak}`)
 }
 
 function healCal(player, base){
@@ -36,8 +34,6 @@ function healCal(player, base){
   }
   let heal = base*multiplier
   player.heal(heal)
-  console.log(`${player.char} heal ${heal} hp`)
-  console.log(`Curse: ${player.curse}`)
 }
 
 const cardList = [{
@@ -72,7 +68,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         if (against.weak==0){
-          const $weak=$('<div>').addClass(`weak${against.char}`)
+          const $weak=$('<div>').addClass(`weak${against.char}`).attr('title','Weak')
           $(`.${against.char}`).children().append($weak)
           $weak.text('3')
         } else {
@@ -93,7 +89,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         if (against.poison==0){
-          const $poison=$('<div>').addClass(`poison${against.char}`)
+          const $poison=$('<div>').addClass(`poison${against.char}`).attr('title','Poison')
           $(`.${against.char}`).children().append($poison)
           $poison.text('3')
         } else {
@@ -114,7 +110,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         if (against.curse==0){
-          const $curse=$('<div>').addClass(`curse${against.char}`)
+          const $curse=$('<div>').addClass(`curse${against.char}`).attr('title','Curse')
           $(`.${against.char}`).children().append($curse)
           $curse.text('3')
         } else {
@@ -182,7 +178,6 @@ const cardList = [{
         player.hand.splice(index,1)
         player.draw(1)
         player.deck.unshift(8)
-        // $(`#${player.char}Deck`).text(player.deck)
         player.mana-=1
         $(`.${player.char}Mana`).text('Mana: '+player.mana)
         }
@@ -214,7 +209,7 @@ const cardList = [{
       } else {
         cardStandard(player, this.sn)
         if (player.reflect==0){
-          const $reflect=$('<div>').addClass(`reflect${player.char}`)
+          const $reflect=$('<div>').addClass(`reflect${player.char}`).attr('title','Reflect')
           $(`.${player.char}`).children().append($reflect)
           $reflect.text('1')
         } else {
