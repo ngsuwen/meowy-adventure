@@ -85,7 +85,7 @@ class Character{
                         type:'inline'}
                     })
                 newgame()
-            } else if (this.name == 'Bossy Mouse'){
+            } else if (this.name == 'Jerry Mouse'){
                 if(!alert('You Win!')){window.location.reload()}
             } else {
                 tom.newTurn()

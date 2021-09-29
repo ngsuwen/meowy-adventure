@@ -1,7 +1,7 @@
 const $boss = $('<div>').addClass('mouseright').attr('id','mousesprite')
 
 function boss(){
-    mouse.name = 'Bossy Mouse'
+    mouse.name = 'Jerry Mouse'
     mouse.hp = 50
     mouse.mana = 5
     mouse.deck = [0, 1, 2, 4, 9, 6, 5, 8, 12, 13]
@@ -13,7 +13,7 @@ function boss(){
     tom.poison = 0
     tom.weak = 0
     tom.curse = 0
-    const $h3 = $('<h3>').text(mouse.name + ' Profile')
+    const $h3 = $('<h3>').text(mouse.name)
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
     const $mouseInfoDialog = $('.mouse')
