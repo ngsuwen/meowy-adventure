@@ -10,6 +10,24 @@ const bumpMouse=()=>{
     }
 }
 
+const mouseLogic=()=>{
+    if (mouse.hp<=10){
+        if (mouse.hand.indexOf(5)>0){
+            let index=mouse.hand.indexOf(5)
+            cardList[mouse.hand[index]].play(mouse, tom)
+            $($('.cardback')[0]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
+        } else if (mouse.hand.indexOf(1)>0){
+            let index=mouse.hand.indexOf(1)
+            cardList[mouse.hand[index]].play(mouse, tom)
+            $($('.cardback')[0]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
+        } else {
+            randomPlay()
+        }
+    } else {
+        randomPlay()
+    }
+}
+
 const randomPlay=()=>{
     random = Math.random()
     if (random<=0.25){
@@ -66,7 +84,7 @@ const mouseAction = ()=>{
 function mousePlay(){
     const playInterval = setInterval(()=>{
         if (mouse.mana>0){
-            randomPlay()
+            mouseLogic()
         } else {
             clearInterval(playInterval)
             $('.cardback').remove()
@@ -98,7 +116,7 @@ async function newMouse(){
     mouse.name = await getName()
     mouse.hp = 20
     mouse.mana = 3
-    mouse.deck = [0, 1, 2, 3, 0, 9]
+    mouse.deck = [1, 2, 3, 3, 5, 6, 8]
     mouse.double = false
     mouse.poison = 0
     mouse.weak = 0
