@@ -27,7 +27,11 @@ foundBox.autoplay = false
 var angryCat = new Audio()
 angryCat.src = "./src/music/kitty-angry-meow.wav"
 angryCat.autoplay = false
-
+// start battle
+var bossMusic = new Audio()
+bossMusic.src = "./src/music/boss-mouse.mp3"
+bossMusic.autoplay = false
+bossMusic.loop = true
 $(()=>{
     $('body').mousedown(function(){softClick.play()})
 })

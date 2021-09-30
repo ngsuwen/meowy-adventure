@@ -80,6 +80,8 @@ class Character{
         if (this.hp<=0){
             if (this.char == 'tom'){
                 gameover.play()
+                bossMusic.play()
+                bgMusic.play()
                 $.magnificPopup.open({
                     items:{
                         src: '#gameover',

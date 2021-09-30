@@ -21,6 +21,8 @@ const checkBox=()=>{
         boss()
         battle=true
         angryCat.play()
+        bgMusic.pause()
+        bossMusic.play()
         $('#tomDeck').hide()
     } else {
         $(`.${currentPoint}`).append($cat)
