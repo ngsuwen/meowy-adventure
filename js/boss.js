@@ -24,7 +24,7 @@ function boss(){
     $('.poisontom').remove()
     $('.poisonmouse').remove()
     const $h3 = $('<h3>').text(mouse.name)
-    const $effect = $(<'div>').addClass('mouseEffect')
+    const $effect = $('<div>').addClass('mouseEffect')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
     const $mouseInfoDialog = $('.mouse')
