@@ -4,7 +4,7 @@ function boss(){
     mouse.name = 'Jerry Mouse'
     mouse.hp = 60
     mouse.mana = 5
-    mouse.deck = [3, 3, 3, 4, 6, 5, 8, 12, 13]
+    mouse.deck = [3, 3, 3, 4, 6, 5, 8, 10, 13]
     mouse.double = false
     mouse.poison = 0
     mouse.weak = 0
