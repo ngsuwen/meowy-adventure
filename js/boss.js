@@ -2,18 +2,29 @@ const $boss = $('<div>').addClass('mouseright').attr('id','mousesprite')
 
 function boss(){
     mouse.name = 'Jerry Mouse'
-    mouse.hp = 50
+    mouse.hp = 60
     mouse.mana = 5
-    mouse.deck = [0, 1, 2, 4, 9, 6, 5, 8, 12, 13]
+    mouse.deck = [3, 3, 3, 4, 6, 5, 8, 12, 13]
     mouse.double = false
     mouse.poison = 0
     mouse.weak = 0
     mouse.curse = 0
+    mouse.reflect = 0
     tom.double = false
     tom.poison = 0
     tom.weak = 0
     tom.curse = 0
+    tom.reflect = 0
+    $('.reflecttom').remove()
+    $('.reflectmouse').remove()
+    $('.cursetom').remove()
+    $('.cursemouse').remove()
+    $('.weaktom').remove()
+    $('.weakmouse').remove()
+    $('.poisontom').remove()
+    $('.poisonmouse').remove()
     const $h3 = $('<h3>').text(mouse.name)
+    const $effect = $(<'div>').addClass('mouseEffect')
     const $health = $('<div>').addClass('mouseHealth')
     $health.text('Health: '+mouse.hp)
     const $mouseInfoDialog = $('.mouse')
@@ -25,6 +36,8 @@ function boss(){
     $('.battle').dialog('open')
     tom.shuffleDeck()
     tom.draw(4)
+    $('#tomDeck').hide()
+    battle=true
 }
 
 let currentBoss='9-5'
@@ -48,4 +61,4 @@ let moveInterval = setInterval(function() {
   if(!battle) {
     bossMove();
   }
-}, 2000);
+}, 1000);
