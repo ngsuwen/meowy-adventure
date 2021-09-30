@@ -12,6 +12,7 @@ const checkBox=()=>{
         }
         $(`.${randomRow}-${randomCol}`).append($box)
         discover()
+        foundBox.play()
         battle = true
         $('.discover').dialog('open')
     } else if ($(`.${currentPoint}`).find('#mousesprite').length>0){
@@ -19,6 +20,7 @@ const checkBox=()=>{
         $(`.${currentPoint}`).append($cat)
         boss()
         battle=true
+        angryCat.play()
         $('#tomDeck').hide()
     } else {
         $(`.${currentPoint}`).append($cat)

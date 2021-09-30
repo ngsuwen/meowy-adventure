@@ -20,11 +20,12 @@ $(()=>{
       } );
     });
     let timeout_id=setTimeout(function(){
-        $.magnificPopup.open({
-        items:items,
-        gallery: {
-            enabled: true 
-        }});
+      interfaceClick.play()
+      $.magnificPopup.open({
+      items:items,
+      gallery: {
+          enabled: true 
+      }});
     },500)
     $('.open-gallery-link').bind('mouseup mouseleave', function(){clearTimeout(timeout_id)})
   }));

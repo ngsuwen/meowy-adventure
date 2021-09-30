@@ -79,6 +79,7 @@ class Character{
         $(`.${this.char}Health`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         if (this.hp<=0){
             if (this.char == 'tom'){
+                gameover.play()
                 $.magnificPopup.open({
                     items:{
                         src: '#gameover',

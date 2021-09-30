@@ -5,6 +5,7 @@ const bumpMouse=()=>{
     random = Math.random()
     if (random<=0.33){
         newMouse()
+        angryCat.play()
         battle=true
         $('#tomDeck').hide()
     }
