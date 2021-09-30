@@ -210,8 +210,8 @@ const cardList = [{
         cardStandard(player, this.sn)
         if (player.reflect==0){
           const $reflect=$('<div>').addClass(`reflect${player.char}`).attr('title','Reflect')
-          $(`.${player.char}`).children().append($reflect)
           $reflect.text('1')
+          $(`.${player.char}`).children().append($reflect)
         } else {
           let num = Number($(`.reflect${player.char}`).text())
           num += 1
