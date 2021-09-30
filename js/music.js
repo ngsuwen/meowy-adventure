@@ -1,7 +1,7 @@
 // bg music
 var bgMusic = new Audio()
 bgMusic.src = "./src/music/bg-music.mp3"
-bgMusic.autoplay = true
+bgMusic.autoplay = false
 bgMusic.loop = true
 // general click
 var softClick = new Audio()
@@ -32,6 +32,22 @@ var bossMusic = new Audio()
 bossMusic.src = "./src/music/boss-mouse.mp3"
 bossMusic.autoplay = false
 bossMusic.loop = true
+// mouse dead
+var mouseMusic = new Audio()
+mouseMusic.src = "./src/music/mouse-dead.wav"
+mouseMusic.autoplay = false
 $(()=>{
     $('body').mousedown(function(){softClick.play()})
+    $('.music-control-off').click(function(){
+        bgMusic.pause()
+        bossMusic.pause()
+        $(this).toggleClass('music-control-on')
+    })
+    $(document).on('click','.music-control-on',function(){
+        if (battle && mouse.name=='Jerry Mouse') {
+            bossMusic.play()
+        } else {
+            bgMusic.play()
+        }
+    })
 })

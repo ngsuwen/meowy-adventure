@@ -91,6 +91,7 @@ class Character{
             } else if (this.name == 'Jerry Mouse'){
                 if(!alert('You Win!')){window.location.reload()}
             } else {
+                mouseMusic.play()
                 tom.newTurn()
                 $("[id^='p']").remove()
                 $('.mouse-info').remove()
