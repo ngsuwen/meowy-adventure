@@ -1,20 +1,20 @@
 .catright {
-    background: url('../src/catspriteright.gif');
+    background: url('../src/image/catspriteright.gif');
     background-repeat: no-repeat;
     height: 80px;
 }
 .catleft {
-    background: url('../src/catspriteleft.gif');
+    background: url('../src/image/catspriteleft.gif');
     background-repeat: no-repeat;
     height: 80px;
 }
 .catup {
-    background: url('../src/catspriteup.gif');
+    background: url('../src/image/catspriteup.gif');
     background-repeat: no-repeat;
     height: 80px;
 }
 .catdown {
-    background: url('../src/catspritedown.gif');
+    background: url('../src/image/catspritedown.gif');
     background-repeat: no-repeat;
     height: 80px;
 }

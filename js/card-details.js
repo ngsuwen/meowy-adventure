@@ -1,6 +1,6 @@
 function addToDeck(sn){
   let deckSn = 'd'+sn
-  let $button = $('<img>').attr('src',`./src/${sn}.png`)
+  let $button = $('<img>').attr('src',`./src/image/${sn}.png`)
   $button.attr('id', deckSn)
   $('#tomDeck').prepend($button)
 }

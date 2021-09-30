@@ -65,7 +65,7 @@ const mouseAction = ()=>{
     const drawInterval = setInterval(()=>{
         if (mouse.hand.length <4){
             mouse.draw(1)
-            $('.mouse').append($('<img>').attr('src','./src/cardback.png').addClass('cardback'))
+            $('.mouse').append($('<img>').attr('src','./src/image/cardback.png').addClass('cardback'))
         } else {
             clearInterval(drawInterval)
             mousePlay()

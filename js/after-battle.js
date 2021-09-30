@@ -25,7 +25,7 @@ $(()=>{
     for (i=0;i<14;i++){
         let sn=i
         let removeSn = 'r'+i
-        let $button = $('<img>').attr('src',`./src/${sn}.png`)
+        let $button = $('<img>').attr('src',`./src/image/${sn}.png`)
         $button.attr('id', removeSn)
         $button.attr('href','#card-window')
         $button.addClass('open-gallery-link')
@@ -54,7 +54,7 @@ $(()=>{
     for (i=4;i<14;i++){
         let addSn = 'a'+i
         let sn = i
-        let $button = $('<img>').attr('src',`./src/${sn}.png`)
+        let $button = $('<img>').attr('src',`./src/image/${sn}.png`)
         $button.attr('id', addSn)
         $button.attr('href','#card-window')
         $button.addClass('open-gallery-link')

@@ -4,17 +4,17 @@ body {
     font-family: 'VT323', monospace;
 }
 .mouseleft {
-    background: url('../src/mousespriteleft.gif');
+    background: url('../src/image/mousespriteleft.gif');
     background-repeat: no-repeat;
     height: 80px;
 }
 .mouseright {
-    background: url('../src/mousespriteright.gif');
+    background: url('../src/image/mousespriteright.gif');
     background-repeat: no-repeat;
     height: 80px;
 }
 .box {
-    background: url('../src/gem.gif');
+    background: url('../src/image/gem.gif');
     background-size: 20px;
     background-repeat: no-repeat;
     height: 50px;
@@ -26,7 +26,7 @@ body {
     width: 45px;
 }
 .container {
-    background: url('../src/bg.png');
+    background: url('../src/image/bg.png');
     max-width: 550px;
     margin: auto;
     display: flex;
@@ -43,7 +43,7 @@ body {
     width: 500px;
 }
 .map {
-    background: url('../src/map1.png');
+    background: url('../src/image/map1.png');
     background-repeat: no-repeat;
     background-size: 520px;
     display: flex;
@@ -150,7 +150,7 @@ button {
 div[class^='poison'] {
     height:20px;
     width:20px;
-    background: url('../src/poison.png');
+    background: url('../src/image/poison.png');
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -160,7 +160,7 @@ div[class^='poison'] {
 div[class^='curse'] {
     height:20px;
     width:20px;
-    background: url('../src/curse.png');
+    background: url('../src/image/curse.png');
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -170,7 +170,7 @@ div[class^='curse'] {
 div[class^='reflect'] {
     height:20px;
     width:20px;
-    background: url('../src/reflect.png');
+    background: url('../src/image/reflect.png');
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -180,7 +180,7 @@ div[class^='reflect'] {
 div[class^='weak'] {
     height:20px;
     width:20px;
-    background: url('../src/weak.png');
+    background: url('../src/image/weak.png');
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
