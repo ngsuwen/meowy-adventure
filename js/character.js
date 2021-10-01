@@ -80,7 +80,7 @@ class Character{
         if (this.hp<=0){
             if (this.char == 'tom'){
                 gameover.play()
-                bossMusic.play()
+                bossMusic.pause()
                 bgMusic.play()
                 $.magnificPopup.open({
                     items:{
