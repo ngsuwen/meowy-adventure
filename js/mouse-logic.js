@@ -15,15 +15,19 @@ const mouseLogic=()=>{
     if (mouse.hp<=10){
         if (mouse.hand.indexOf(5)>0){
             let index=mouse.hand.indexOf(5)
+            $($('.cardback')[index]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
             cardList[mouse.hand[index]].play(mouse, tom)
-            $($('.cardback')[0]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         } else if (mouse.hand.indexOf(1)>0){
             let index=mouse.hand.indexOf(1)
+            $($('.cardback')[index]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
             cardList[mouse.hand[index]].play(mouse, tom)
-            $($('.cardback')[0]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
         } else {
             randomPlay()
         }
+    } else if (mouse.hand.indexOf(3)>0){
+        let index=mouse.hand.indexOf(3)
+        $($('.cardback')[index]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
+        cardList[mouse.hand[index]].play(mouse, tom)
     } else {
         randomPlay()
     }
