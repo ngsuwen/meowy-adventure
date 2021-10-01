@@ -33,12 +33,14 @@ The **API** is used to randomly pick a name for the enemy mouse.
 * **Game logic:** The game allows many different combinations to be played, and there may be unforseen errors when certain combinations are made. *Solution:* I tried and tested out many different combinations to test the game logic. Eg. the game requires the player to have at least 5 cards in their deck. One error that I found was that when *Last Resort (Heal 30 and discard the card permanently from the deck)* was played, there might be a chance that the player's deck will fall below 5 cards. I decided to change the description to *'Heal 30 and replace the card with Heal (Heal 4 health)'* instead.
 
 ## Personal Reflection
-I feel that I have achieved what I wanted to do when I first started out this project. I was also able to apply what I have learnt in GA Unit 1 into the project. In addition to the concepts learnt in Unit 1, I have also researched on new functions / features to include into the game. For example, Magnific Popup was an additional feature that I have decided to use to have pop up windows.  
-I noticed that file organization is very important. 
+I feel that I have achieved what I wanted to do when I first started out this project. I was also able to apply what I have learnt in GA Unit 1 into the project. In addition to the concepts learnt in Unit 1, I have researched on new functions / features to include into the game. For example, Magnific Popup was an additional feature that I have decided to use to have pop up windows.  
+File organization is very important. As this game has many components, I have decided to split them into different files. This has been helpful in making my code more reable and easy to understand.  
 Below are also some additional game improvements that could be done, if time permits:  
 * Time countdown (To re-enact the owner going out to town and coming back home)
 * Keep count on the number of mice defeated
-* Add a second floor to the house
+* Add a second floor to the house  
+
+Overall, I am pretty satisfied with the final product. I enjoyed the process as well, especially because this game involves 2 things that I love, deck-building games and cats!
 
 ## Game Instructions
 The goal of the game is to defeat **Jerry Mouse** without dying. The player will start with 6 cards in their deck. They can add new cards or remove cards from their deck by obtaining the **Gem** that will spawn randomly on the map. As the player moves around the map to collect the **Gems**, they will randomly bump into **enemy mice**. Defeat the mice and **Jerry Mouse** to win the game!
