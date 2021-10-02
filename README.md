@@ -34,7 +34,7 @@ The **API** is used to randomly pick a name for the enemy mouse.
 
 ## Personal Reflection
 I feel that I have achieved what I wanted to do when I first started out this project. I was also able to apply what I have learnt in GA Unit 1 into the project. In addition to the concepts learnt in Unit 1, I have researched on new functions / features to include into the game. For example, Magnific Popup was an additional feature that I have decided to use to have pop up windows.  
-File organization is very important. As this game has many components, I have decided to split them into different files. This has been helpful in making my code more reable and easy to understand.  
+File organization is very important. As this game has many components, I have decided to split them into different files. This has been helpful in making my code more readable and easy to understand.  
 Below are also some additional game improvements that could be done, if time permits:  
 * Time countdown (To re-enact the owner going out to town and coming back home)
 * Keep count on the number of mice defeated
